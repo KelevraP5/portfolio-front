@@ -3,17 +3,21 @@
 @tailwind utilities;
 
 :root{
-  --hex-main-color: #0837E9;
-  --hsl-main-color: 227,93,47;
+  --hex-mainColor: #0837e9;
+  --rgb-mainColor: 8, 55, 233;
 
-  --hex-secondary-color: #EED00B;
-  --hsl-secondary-color: 52,91,49;
+  --hex-secondaryColor: #eed00b;
+  --rgb-secondaryColor: 238, 208, 11;
 
   --hex-black: #262b2f;
-  --hsl-black: 207,11,17;
+  --hsl-black: 38, 43, 47;
 
   --hex-white: #f5f5f5;
-  --hsl-white: 0,0,96;
+  --hsl-white: 245, 245, 245;
+
+  --font-16px: 1rem;
+  --font-24px: calc((24/16)*1rem);
+  --font-40px: calc((40/16)*1rem);
 }
 
 @layer base {
@@ -21,14 +25,18 @@
     color: var(--hex-white)
   }
 
+  header{
+    font-size: var(--font-24px);
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-abril;
+    @apply font-titre;
     font-size: revert;
     font-weight: 400;
   }
 
   p, span {
-    @apply font-calibri;
+    @apply font-contenu;
   }
 
   a{
@@ -36,18 +44,48 @@
   }
 
   .site-container{
-    background-image: linear-gradient(180deg, rgba(8,55,233,1) 0%, rgba(8,55,233,0.70) 90%);
+    background-image: linear-gradient(180deg, rgba(var(--rgb-mainColor),1) 0%, rgba(var(--rgb-mainColor),0.7) 90%);
   }
 }
 
 @layer components {
+  .sidebar{
+    background-color: rgba(var(--rgb-mainColor), 0.8);
+    position: fixed;
+    left: -50lvw;
+    transition: all 0.8s ease-in-out;
+  }
+
   .sidebar.open{
     left: 0;
     transform: translateX(40px);
-    transition: left 0.5s ease-in-out;
+  }
+
+  .trophy-infos{
+    background-color: transparent;
   }
 }
 
-/* @layer utilities {
-  .text-shadow {  }
-}  */
+@layer utilities {
+  .trophy-name{
+    font-size: var(--font-24px);
+    
+    p::first-letter{
+      text-transform: uppercase;
+    }
+  }
+
+  .trophy-resume{
+    font-size: var(--font-16px);
+
+    p::first-letter{
+      text-transform: uppercase;
+    }
+  }
+
+  .nom-menu{
+    @apply font-titre;
+    font-size: var(--font-40px);
+    text-transform: capitalize;
+  }
+} 

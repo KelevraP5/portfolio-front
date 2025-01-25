@@ -4,5 +4,5 @@ export const abrilFatface = Abril_Fatface({
   subsets: ["latin"],
   weight: "400",
   display: "swap",
-  variable: '--font-abril-fatface',
+  variable: '--font-titre',
 });

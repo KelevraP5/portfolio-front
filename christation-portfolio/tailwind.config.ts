@@ -8,13 +8,14 @@ const config: Config = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    // "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        'abril': ['var(--font-abril-fatface)'],
-        'calibri': ['Calibri', 'sans-serif'],
+        'titre': ['var(--font-titre)'],
+        'contenu': ['Calibri', 'sans-serif'],
       },
     },
   },

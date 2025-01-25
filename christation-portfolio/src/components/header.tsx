@@ -12,15 +12,14 @@ export function Header({ isSidebarOpen, setIsSidebarOpen }: HeaderProps) {
   const pathname = usePathname();
 
   return (
-    <header className="text-[calc((24/16)*1rem)] h-[100px] py-[16px] px-[28px]">
+    <header className="text-[] h-[100px] py-[16px] px-[28px]">
       <div className="h-[100%] flex justify-between items-center">
         <div className="left-side flex gap-[32px]">
-          <div 
-            className="trophees-btn flex gap-[8px] cursor-pointer"
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          >
+          <div className="trophees-btn flex gap-[8px] cursor-pointer" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+
             <div className="logo-trophees bg-pink-500 w-[60px] h-[60px] aspect-square"></div>
-            <div className="trophees-txt content-center">
+
+            <div className="trophees-txt content-center cursor-pointer">
               <span>Trophées</span>
             </div>
           </div>
