@@ -10,10 +10,16 @@
   --rgb-secondaryColor: 238, 208, 11;
 
   --hex-black: #262b2f;
-  --hsl-black: 38, 43, 47;
+  --rgb-black: 38, 43, 47;
 
   --hex-white: #f5f5f5;
-  --hsl-white: 245, 245, 245;
+  --rgb-white: 245, 245, 245;
+
+  --hex-grey: #4a4a4a;
+  --rgb-grey: 74, 74, 74;
+
+  --hex-red: #fe2329;
+  --rgb-red: 254, 35, 41;
 
   --font-16px: 1rem;
   --font-24px: calc((24/16)*1rem);
@@ -27,6 +33,17 @@
 
   header{
     font-size: var(--font-24px);
+  }
+
+  footer{
+    @apply font-contenu;
+    font-weight: bold;
+    border-top: 1px solid transparent;
+    transition: border-top 0.7s ease-in-out;
+
+    &:hover{
+      border-top: 1px solid var(--hex-white);
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -45,6 +62,24 @@
 
   .site-container{
     background-image: linear-gradient(180deg, rgba(var(--rgb-mainColor),1) 0%, rgba(var(--rgb-mainColor),0.7) 90%);
+    background-color: transparent;
+    opacity: 1;
+    transition: all 0.7s ease-in-out 0.2s;
+
+    & > *{
+      opacity: 1;
+      transition: opacity 0.7s ease-in-out 0.2s;
+    }
+
+    &.screen-off{
+      background-image: linear-gradient(180deg, rgba(var(--rgb-mainColor),0) 0%, rgba(var(--rgb-mainColor),0) 90%);
+      background-color: var(--hex-grey);
+
+      & > *{
+        opacity: 0;
+        transition: opacity 0.15s ease-in-out;
+      }
+    }
   }
 }
 
@@ -67,6 +102,12 @@
 }
 
 @layer utilities {
+  .trophy-txt > *, .menu-btn > *{
+    @apply font-titre;
+    font-size: var(--font-24px);
+  }
+
+
   .trophy-name{
     font-size: var(--font-24px);
     
@@ -83,9 +124,37 @@
     }
   }
 
-  .nom-menu{
+  .nom-menu > *{
     @apply font-titre;
     font-size: var(--font-40px);
     text-transform: capitalize;
+    /* color: var(--hex-black); */
+  }
+
+  .logo-on-off .switch{
+    &:hover{
+      cursor: pointer;
+    }
+
+    &.on{
+      color: var(--hex-white);
+      transition: color 0.7s ease;
+    }
+
+    &.off{
+      color: var(--hex-red);
+      transition: color 0.7s ease;
+    }
+  }
+
+  .line{
+    width: fit-content;
+    height: 100%;
+    border-right: 1px solid var(--hex-white);
+  }
+
+  .logo-linkedin:hover .logo, .mentions:hover a{
+    color: var(--hex-secondaryColor);
+    transition: color 0.5s ease-in-out;
   }
 } 

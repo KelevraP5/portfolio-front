@@ -1,29 +1,37 @@
 "use client";
 import { useState } from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
+
 import "@/app/styles/globals.css";
 import "@/app/styles/reset.css";
 import { abrilFatface } from "@/app/styles/fonts";
 
 import { Header } from "@/components/header";
 import { TrophySidebar } from "@/components/trophySidebar";
-import Home from "@/app/pages/index";
+import Footer from "@/components/footer";
 
-export default function RootLayout({
-  children,
-} : Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children,} : Readonly <{ children: React.ReactNode }>) {
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const closeSidebar = () => {
     setIsSidebarOpen(false);
   }
 
+  const [isTurnedOff, setIsTurnedOff] = useState(false);
+  const switchScreenOff = () => {
+    setIsTurnedOff(prevState => !prevState);
+  }
+
   return (
     <html lang="fr" className={abrilFatface.variable}>
-      <body suppressHydrationWarning={true} className="antialiased">
-        <div className="frame p-[40px] bg-[var(--hex-black)] h-[100%] z-1">
-          <div className="site-container z-2 w-[100%] h-[100%]">
+      <body suppressHydrationWarning={true} className="antialiased" >
+        <div className="frame p-[40px] bg-[var(--hex-black)] h-[100%] relative z-1">
+          <div className="logo-on-off absolute bottom-1 left-[50%] w-[29px] h-[29px]" onClick={switchScreenOff}>
+            <FontAwesomeIcon icon={faPowerOff} className={`switch w-full h-full ${isTurnedOff ? 'off' : 'on'}`} />
+          </div>
+          <div className={`site-container z-2 w-[100%] h-[100%] ${isTurnedOff ? 'screen-off' : ''} ${isTurnedOff ? 'pointer-events-none' : ''}`}>
             <div className="wrapper">
               <div className="header-trophies">
                 <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
@@ -31,8 +39,10 @@ export default function RootLayout({
               </div>
 
               <main className="w-[100%] h-[20%]">
-                <Home />
+                {children}
               </main>
+
+              <Footer />
             </div>
           </div>
         </div>

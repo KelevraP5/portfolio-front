@@ -19,7 +19,7 @@ export function Header({ isSidebarOpen, setIsSidebarOpen }: HeaderProps) {
 
             <div className="logo-trophees bg-pink-500 w-[60px] h-[60px] aspect-square"></div>
 
-            <div className="trophees-txt content-center cursor-pointer">
+            <div className="trophy-txt content-center cursor-pointer">
               <span>Trophées</span>
             </div>
           </div>
