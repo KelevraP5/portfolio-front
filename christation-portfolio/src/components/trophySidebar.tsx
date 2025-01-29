@@ -23,9 +23,8 @@ export function TrophySidebar({ isOpen, onClose }: TrophySidebarProps) {
   }, [onClose]);
 
   return (
-    <div ref={sidebarRef} className={`sidebar h-[calc(100%-180px)] w-[262px] ${
-      isOpen ? 'open' : ''
-    }`}>
+    <div ref={sidebarRef} className={`sidebar h-[calc(100%-180px)] w-[262px] z-50 ${
+      isOpen ? 'open' : ''}`}>
       <div className="list-trophies flex flex-col gap-[1rem] py-[1rem]">
         {trophyResume ({trophyName: "trophée 1", trophyResume: "voici le résumé de ce trophée. Bravo !"})}
         {trophyResume ({trophyName: "trophée 2", trophyResume: "voici le résumé de ce trophée. Bravo !"})}

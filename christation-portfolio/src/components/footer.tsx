@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function Footer(){
     return(
-        <footer className="w-full h-[60px] py-[0.5rem] px-[calc((110/16)*1rem)]">
-            <div className="footer-wrap h-full flex justify-between items-center">
+        <footer className="w-full h-[60px] py-[0.5rem]">
+            <div className="footer-wrap h-full w-[85%] m-auto flex justify-between items-center">
                 <div className="author-site">
                     <p>Ce site a été designé par Christophe Nehlig. 2025. Tous droits réservés.</p>
                 </div>

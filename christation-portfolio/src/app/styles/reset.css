@@ -31,7 +31,7 @@ p, span{
 }
 
 .wrap {
-    max-width: calc((100-80)*100vw);
+    max-width: calc((1654 - 1574) * 100vw);
     width: 100%;
     margin: 0 auto;
     padding-inline: 40px;

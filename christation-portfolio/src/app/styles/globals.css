@@ -20,10 +20,6 @@
 
   --hex-red: #fe2329;
   --rgb-red: 254, 35, 41;
-
-  --font-16px: 1rem;
-  --font-24px: calc((24/16)*1rem);
-  --font-40px: calc((40/16)*1rem);
 }
 
 @layer base {
@@ -31,12 +27,7 @@
     color: var(--hex-white)
   }
 
-  header{
-    font-size: var(--font-24px);
-  }
-
   footer{
-    @apply font-contenu;
     font-weight: bold;
     border-top: 1px solid transparent;
     transition: border-top 0.7s ease-in-out;
@@ -52,7 +43,7 @@
     font-weight: 400;
   }
 
-  p, span {
+  p, span, li {
     @apply font-contenu;
   }
 
@@ -61,10 +52,13 @@
   }
 
   .site-container{
-    background-image: linear-gradient(180deg, rgba(var(--rgb-mainColor),1) 0%, rgba(var(--rgb-mainColor),0.7) 90%);
     background-color: transparent;
     opacity: 1;
     transition: all 0.7s ease-in-out 0.2s;
+
+    &.bg-site{
+      background-image: linear-gradient(180deg, rgba(var(--rgb-mainColor),1) 0%, rgba(var(--rgb-mainColor),0.7) 90%);
+    }
 
     & > *{
       opacity: 1;
@@ -78,6 +72,12 @@
       & > *{
         opacity: 0;
         transition: opacity 0.15s ease-in-out;
+      }
+    }
+
+    .wrapper{
+      &.home{
+        background: purple;
       }
     }
   }
@@ -102,33 +102,18 @@
 }
 
 @layer utilities {
-  .trophy-txt > *, .menu-btn > *{
-    @apply font-titre;
-    font-size: var(--font-24px);
-  }
-
-
-  .trophy-name{
-    font-size: var(--font-24px);
-    
-    p::first-letter{
-      text-transform: uppercase;
+  .trophy-infos{
+    .trophy-name{
+      p::first-letter{
+        text-transform: uppercase;
+      }
     }
-  }
-
-  .trophy-resume{
-    font-size: var(--font-16px);
-
-    p::first-letter{
-      text-transform: uppercase;
+  
+    .trophy-resume{  
+      p::first-letter{
+        text-transform: uppercase;
+      }
     }
-  }
-
-  .nom-menu > *{
-    @apply font-titre;
-    font-size: var(--font-40px);
-    text-transform: capitalize;
-    /* color: var(--hex-black); */
   }
 
   .logo-on-off .switch{
@@ -147,14 +132,62 @@
     }
   }
 
-  .line{
-    width: fit-content;
-    height: 100%;
-    border-right: 1px solid var(--hex-white);
+  footer{
+    .line{
+      width: fit-content;
+      height: 100%;
+      border-right: 1px solid var(--hex-white);
+    }
+  
+    .logo-linkedin:hover .logo, .mentions:hover a{
+      color: var(--hex-secondaryColor);
+      transition: color 0.5s ease-in-out;
+    }
   }
 
-  .logo-linkedin:hover .logo, .mentions:hover a{
-    color: var(--hex-secondaryColor);
-    transition: color 0.5s ease-in-out;
+  .about-section{
+    .bg-deco{
+      height: calc((300 / 804) * 100%);
+    }
+
+    .infos-canva{
+      /* background-image: linear-gradient(180deg, rgba(var(--rgb-mainColor),0.7) 0%, rgba(var(--rgb-mainColor),1) 90%); */
+
+      .about-menu{
+        ul{
+          div{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-block: 0.5rem;
+            padding-inline: 1rem;
+            border-bottom: 1px solid var(--hex-white);
+            transition: background-color 0.2s ease-in, border 0.1s ease-out;
+
+            &:hover{
+              background-color: var(--hex-secondaryColor);
+              border-bottom: 1px solid transparent;
+              cursor: pointer;
+
+              li{
+                background-color: rgba(var(--rgb-mainColor), 0.9);
+              }
+            }
+
+            li{
+              width: 100%;
+              height: 100%;
+              text-align: center;
+              padding-block: 0.3rem;
+              transition: background-color 0.2s ease-in;
+
+              &::first-letter{
+                text-transform: uppercase;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 } 

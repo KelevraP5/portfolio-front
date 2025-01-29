@@ -4,7 +4,7 @@ import { homeMenu } from "@/components/homeMenu";
 
 export default function Home() {
   return (
-    <div className="menu-container w-[100%] h-[100%] flex justify-evenly items-center ">
+    <div className="menu-container w-[100%] h-[100%] flex justify-evenly items-center">
       <Link href="/pages/about">
         {homeMenu({ nomMenu: "à propos de moi" })}
       </Link>
