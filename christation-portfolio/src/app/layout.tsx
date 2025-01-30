@@ -18,6 +18,8 @@ export default function RootLayout({ children,} : Readonly <{ children: React.Re
   const isHome = pathname === '/';
   const isAbout = pathname === '/pages/about';
 
+  // PENSEZ A FAIRE L'APPARITION DES IMAGES QUAND ON HOVER SUR 1 MENU
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const closeSidebar = () => {
     setIsSidebarOpen(false);

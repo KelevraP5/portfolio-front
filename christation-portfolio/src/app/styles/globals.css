@@ -190,4 +190,10 @@
       }
     }
   }
+
+  .menu-container{
+    .menu-list:hover .menu-item:not(:hover) {
+      filter: blur(5px);
+    }
+  }
 } 
