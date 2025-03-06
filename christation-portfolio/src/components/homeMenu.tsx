@@ -7,7 +7,7 @@ interface HomeMenuProps {
     nomMenu : string;
 }
 
-export function homeMenu({ nomMenu } : HomeMenuProps) {
+export function HomeMenu({ nomMenu } : HomeMenuProps) {
   return (
     <div className="nav-home flex flex-col items-center gap-[0.5rem]">
       <div className="icone-menu w-[190px] h-[178px] bg-pink-500">

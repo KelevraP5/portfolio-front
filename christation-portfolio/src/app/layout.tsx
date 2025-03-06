@@ -5,13 +5,12 @@ import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
 
-import "@/app/styles/globals.css";
-import "@/app/styles/reset.css";
-import { abrilFatface } from "@/app/styles/fonts";
+import "src/app/styles/globals.css";
+import { abrilFatface } from "src/app/styles/fonts";
 
-import { Header } from "@/components/header";
-import { TrophySidebar } from "@/components/trophySidebar";
-import Footer from "@/components/footer";
+import { Header } from "src/components/header";
+import { TrophySidebar } from "src/components/trophySidebar";
+import Footer from "src/components/footer";
 
 export default function RootLayout({ children,} : Readonly <{ children: React.ReactNode }>) {
   const pathname = usePathname();
@@ -37,8 +36,8 @@ export default function RootLayout({ children,} : Readonly <{ children: React.Re
           <div className="logo-on-off absolute bottom-1 left-[50%] w-[29px] h-[29px]" onClick={switchScreenOff}>
             <FontAwesomeIcon icon={faPowerOff} className={`switch w-full h-full ${isTurnedOff ? 'off' : 'on'}`} />
           </div>
-          <div className={`site-container z-2 w-[100%] h-[100%] ${!isHome && !isAbout ? "bg-site" : ""} ${isTurnedOff ? 'screen-off' : ''} ${isTurnedOff ? 'pointer-events-none' : ''}`}>
-            <div className={`wrapper ${isHome ? "home" : ""}`}>
+          <div className={`site-container z-2 w-full h-full ${!isHome && !isAbout ? "bg-site" : ""} ${isTurnedOff ? 'screen-off' : ''} `}>
+            <div className={`wrapper ${isHome ? "home" : (isAbout ? "about" : "")}`}>
               <div className="header-trophies">
                 <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
                 <TrophySidebar isOpen={isSidebarOpen} onClose={closeSidebar} />

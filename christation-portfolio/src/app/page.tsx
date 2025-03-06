@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { homeMenu } from "@/components/homeMenu";
+import { HomeMenu } from "src/components/homeMenu";
 
 export default function Home() {
   return (
@@ -8,19 +8,19 @@ export default function Home() {
       <ul className="menu-list w-full flex justify-evenly items-center">
         <li className="menu-item">
           <Link href="/pages/about">
-            {homeMenu({ nomMenu: "à propos de moi" })}
+            {HomeMenu({ nomMenu: "à propos de moi"})}
           </Link>
         </li>
 
         <li className="menu-item">
           <Link href="/pages/realisations">
-            {homeMenu({ nomMenu: "mes réalisations" })}
+            {HomeMenu({ nomMenu: "mes réalisations" })}
           </Link>
         </li>
 
         <li className="menu-item">
           <Link href="/pages/contact">
-            {homeMenu({ nomMenu: "me contacter" })}
+            {HomeMenu({ nomMenu: "me contacter" })}
           </Link>
         </li>
       </ul>
