@@ -43,7 +43,7 @@ export default function RootLayout({ children,} : Readonly <{ children: React.Re
                 <TrophySidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
               </div>
 
-              <main className="w-full h-full">
+              <main className="w-full h-full overflow-hidden">
                 {children}
               </main>
 

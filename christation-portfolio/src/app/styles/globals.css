@@ -23,6 +23,8 @@
 }
 
 @layer base {
+  /* Base élément site */
+
   *{
     margin: 0;
     padding: 0;
@@ -50,6 +52,10 @@
     color: var(--hex-white)
   }
 
+  /* Fin base élément site */
+
+  /* Base Header, Footer et écriture */
+  
   header{
     flex-grow: 0;
     flex-shrink: 0;
@@ -65,10 +71,6 @@
     &:hover{
       border-top: 1px solid var(--hex-white);
     }
-  }
-
-  main{
-    flex-grow: 1;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -87,6 +89,10 @@
     text-decoration: none;
     color: var(--hex-white);
   }
+
+  /* Fin Base Header, Footer et écriture */
+
+  /* Début base design */
 
   .site-container{
     background-color: transparent;
@@ -134,9 +140,14 @@
       }
     }
   }
+
+  /* Fin base design */
 }
 
 @layer components {
+
+  /* Sidebar et infos trophés */
+
   .sidebar{
     background-color: rgba(var(--rgb-mainColor), 0.8);
     position: fixed;
@@ -152,6 +163,8 @@
   .trophy-infos{
     background-color: transparent;
   }
+
+  
 }
 
 @layer utilities {
@@ -169,6 +182,10 @@
     }
   }
 
+  /* Fin Sidebar et trophés */
+
+  /* Début logo switch */
+
   .logo-on-off .switch{
     &:hover{
       cursor: pointer;
@@ -185,6 +202,10 @@
     }
   }
 
+  /* Fin logo switch */
+
+  /* Début Hover footer */
+
   footer{
     .line{
       width: fit-content;
@@ -198,46 +219,83 @@
     }
   }
 
-  #about-section{
-    border: 2px dashed white;
-    .about-menu{
-      background: #fff;
+  /* Fin Hover footer */
 
-      ul{
-        div{
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          padding-block: 0.5rem;
-          padding-inline: 1rem;
-          border-bottom: 1px solid var(--hex-white);
-          transition: background-color 0.2s ease-in, border 0.1s ease-out;
-
-          &:hover{
-            background-color: var(--hex-secondaryColor);
-            border-bottom: 1px solid transparent;
-            cursor: pointer;
-
-            li{
-              background-color: rgba(var(--rgb-mainColor), 0.9);
-            }
-          }
-
-          li{
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            padding-block: 0.3rem;
-            transition: background-color 0.2s ease-in;
-          }
-        }
-      }
-    }
-  }
+  /* Style hover menu home */
 
   .menu-container{
     .menu-list:hover .menu-item:not(:hover) {
       filter: blur(5px);
     }
   }
+
+  /* Fin hover menu home */
+
+  /* Début style page about / à propos */
+
+  .about-section {
+    .identite{
+      background: rgba(var(--rgb-mainColor), 0.25);
+    }
+
+    .menu-infos{
+      .about-menu {
+        ul {
+          div {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-block: 0.5rem;
+            padding-inline: 1rem;
+            border-bottom: 1px solid var(--hex-white);
+            transition: background-color 0.2s ease-in, border 0.1s ease-out;
+  
+            &.active{
+              background-color: var(--hex-secondaryColor);
+              border-bottom: 1px solid transparent;
+  
+              li{
+                background-color: rgba(var(--rgb-mainColor), 0.9);
+              }
+            }
+    
+            &:hover {
+              background-color: var(--hex-secondaryColor);
+              border-bottom: 1px solid transparent;
+              cursor: pointer;
+    
+              li {
+                background-color: rgba(var(--rgb-mainColor), 0.9);
+              }
+            }
+    
+            li {
+              width: 100%;
+              height: 100%;
+              text-align: center;
+              padding-block: 0.3rem;
+              transition: background-color 0.2s ease-in;
+            }
+          }
+        }
+      }
+  
+      .cadre-texte-about{  
+        &::-webkit-scrollbar {
+          width: 5px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--hex-secondaryColor);
+          border-radius: 10px;
+        }
+        
+        &::-webkit-scrollbar-track {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  
+  /* Fin style page about/à propos */
 } 
