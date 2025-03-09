@@ -1,0 +1,14 @@
+.trophyInfos{
+    background-color: transparent;
+    .trophyName{
+      p::first-letter{
+        text-transform: uppercase;
+      }
+    }
+  
+    .trophyResume{  
+      p::first-letter{
+        text-transform: uppercase;
+      }
+    }
+}

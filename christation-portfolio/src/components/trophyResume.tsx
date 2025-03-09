@@ -1,4 +1,5 @@
-import "../app/styles/globals.css";
+import "styles/globals.css";
+import style from "styles/modules/components/trophy.module.css";
 
 interface TrophyResumeProps {
     trophyName : string;
@@ -7,12 +8,12 @@ interface TrophyResumeProps {
 
 export function trophyResume ({ trophyName, trophyResume } : TrophyResumeProps) {
     return (
-        <div className="trophy-infos cursor-default flex flex-col gap-[1rem] py-[0.5rem] border-0 border-t border-b border-solid border-[var(--hex-secondaryColor)]">
-            <div className="trophy-name text-center">
+        <div className={`${style.trophyInfos} cursor-default flex flex-col gap-[1rem] py-[0.5rem] border-0 border-t border-b border-solid border-[var(--hex-secondaryColor)]}`}>
+            <div className={`${style.trophyName}  text-center`}>
                 <p className="font-titre text-font-24px">{trophyName}</p>
             </div>
 
-            <div className="trophy-resume text-center">
+            <div className={`${style.trophyResume} text-center`}>
                 <p>{trophyResume}</p>
             </div>
         </div>

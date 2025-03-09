@@ -1,0 +1,60 @@
+:root {
+  --mainGradient : linear-gradient(180deg, theme('colors.rgba-mainColor') 0%, theme('colors.rgba-mainColorLight') 90%);
+  --aboutGradient : linear-gradient(180deg, theme('colors.rgba-mainColorLight') 0%, theme('colors.rgba-mainColor') 90%);
+}
+
+.logoOnOff .switch{
+  &:hover{
+    cursor: pointer;
+  }
+
+  &.on{
+    color: theme('colors.hex-white');
+    transition: color 0.7s ease;
+  }
+
+  &.off{
+    color: theme('colors.hex-red');
+    transition: color 0.7s ease;
+  }
+}
+
+.siteContainer{
+    background-color: transparent;
+    opacity: 1;
+    transition: all 0.7s ease-in-out 0.2s;
+
+    &.bgSite{
+      background-image: var(--mainGradient);
+    }
+
+    & > *{
+      opacity: 1;
+      transition: opacity 0.7s ease-in-out 0.2s;
+    }
+
+    &.screenOff{
+      background-image: var(--mainGradient);
+      background-color: theme('colors.hex-grey');
+      pointer-events: none;
+
+      & > *{
+        opacity: 0;
+        transition: opacity 0.15s ease-in-out;
+      }
+    }
+
+    .wrapper{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      &.home{
+        background: var(--mainGradient);
+      }
+
+      &.about{
+        background-image: var(--aboutGradient);
+      }
+    }
+  }

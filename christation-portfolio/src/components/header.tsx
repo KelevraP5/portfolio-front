@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-import "../app/styles/globals.css";
+import "styles/globals.css";
 
 interface HeaderProps {
   isSidebarOpen: boolean;

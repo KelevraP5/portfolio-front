@@ -1,0 +1,63 @@
+.aboutSection {
+    .identite{
+      background: theme('colors.aboutIDFond');
+    }
+
+    .menuInfos{
+      .aboutMenu {
+        ul {
+          div {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-block: 0.5rem;
+            padding-inline: 1rem;
+            border-bottom: 1px solid theme('colors.hex-white');
+            transition: background-color 0.2s ease-in, border 0.1s ease-out;
+  
+            &.active{
+              background-color: theme('colors.hex-secondaryColor');
+              border-bottom: 1px solid transparent;
+  
+              li{
+                background-color: theme('colors.aboutMenuFond');
+              }
+            }
+    
+            &:hover {
+              background-color: theme('colors.hex-secondaryColor');
+              border-bottom: 1px solid transparent;
+              cursor: pointer;
+    
+              li {
+                background-color: theme('colors.aboutMenuFond');
+              }
+            }
+    
+            li {
+              width: 100%;
+              height: 100%;
+              text-align: center;
+              padding-block: 0.3rem;
+              transition: background-color 0.2s ease-in;
+            }
+          }
+        }
+      }
+  
+      .cadreTexteAbout{  
+        &::-webkit-scrollbar {
+          width: 5px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+          background-color: theme('colors.hex-secondaryColor');
+          border-radius: 10px;
+        }
+        
+        &::-webkit-scrollbar-track {
+          background-color: transparent;
+        }
+      }
+    }
+  }
