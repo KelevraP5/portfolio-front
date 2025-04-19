@@ -6,14 +6,14 @@ import Link from "next/link";
 export default function Footer(){
     return(
         <footer className="w-full h-[60px] py-[0.5rem] cursor-default">
-            <div className="footer-wrap h-full w-[85%] m-auto flex justify-between items-center">
-                <div className="author-site">
+            <div className="footer-wrap h-full m-auto flex justify-between items-center">
+                <div className="element author-site px-[0.5rem]">
                     <p>Ce site a été designé par Christophe Nehlig. 2025. Tous droits réservés.</p>
                 </div>
 
                 <div className="line"></div>
 
-                <div className="rs flex gap-[0.5rem]">
+                <div className="element rs flex gap-[0.5rem] px-[0.5rem]">
                     <div className="texte">
                         <p>Retrouvez moi sur </p>
                     </div>
@@ -27,13 +27,13 @@ export default function Footer(){
 
                 <div className="line"></div>
 
-                <div className="mentions">
+                <div className="element mentions px-[0.5rem]">
                     <Link href="">Mentions légales</Link>
                 </div>
 
                 <div className="line"></div>
 
-                <div className="infos-technos">
+                <div className="element infos-technos px-[0.5rem]">
                     <p>Site fait avec Wordpress et Next.js</p>
                 </div>
             </div>

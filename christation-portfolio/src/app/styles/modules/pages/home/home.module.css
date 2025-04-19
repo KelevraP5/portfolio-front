@@ -1,5 +1,11 @@
-.menuContainer{
-    .menuList:hover .menuItem:not(:hover) {
-      filter: blur(5px);
+.menuContainer {
+    .menuList{
+        .menuItem {
+            transition: filter 0.3s ease-in-out;
+        }
     }
-  }
+
+    .blurred {
+        filter: blur(5px);
+    }
+}

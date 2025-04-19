@@ -28,9 +28,9 @@ export default function About() {
             <div className={`${style.photoMoi} w-[152px] h-[152px] aspect-square bg-pink-500`}></div>
 
             <div className={`${style.nomPrenom}`}>
-              <span className="text-font-64px font-titre">
+              <h1 className="text-font-64px font-titre">
                 Christophe Nehlig
-              </span>
+              </h1>
             </div>
           </div>
         </div>

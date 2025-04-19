@@ -39,15 +39,16 @@
     flex-grow: 1;
   }
 
-  footer{
+  footer {
     flex-grow: 0;
     flex-shrink: 0;
+    text-align: center;
     font-weight: bold;
     border-top: 1px solid transparent;
-    transition: border-top 0.7s ease-in-out;
+    transition: border-top-color 0.7s ease-in-out;
 
-    &:hover{
-      border-top: 1px solid theme('colors.hex-white');
+    &:hover {
+        border-top-color: theme('colors.hex-white');
     }
 
     .line{
@@ -59,6 +60,33 @@
     .logo-linkedin:hover .logo, .mentions:hover a{
       color: theme('colors.hex-secondaryColor');
       transition: color 0.5s ease-in-out;
+    }
+
+    .footer-wrap{
+      width: 85%;
+    }
+
+    @media  screen and (max-width : 1300px) {
+        .footer-wrap{
+          width: 98%;
+        }
+    }
+
+    @media  screen and (max-width : 1123px){
+      border-top: 1px solid theme('colors.hex-white');
+
+      .element{
+        &.rs{
+          .texte{
+            display: none
+          }
+  
+          .logo-linkedin{
+            width: 25px;
+            height: 26px;
+          }
+        }
+      }
     }
   }
 
