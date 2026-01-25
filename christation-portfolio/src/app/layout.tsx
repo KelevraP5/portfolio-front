@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { usePathname } from "next/navigation";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
@@ -15,10 +14,9 @@ import { Header } from "components/header";
 import { TrophySidebar } from "components/trophySidebar";
 import Footer from "components/footer";
 
-function LayoutContent({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-  const isHome = pathname === "/";
-  const isAbout = pathname === "/pages/about";
+function LayoutContent({ 
+  children 
+}: Readonly<{ children: React.ReactNode }>) {
 
   const { backgroundImage } = useBackground();
 
@@ -33,12 +31,12 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <html lang="fr" className={abrilFatface.variable}>
-      <body suppressHydrationWarning={true} className="antialiased">
-        <div className="frame p-[40px] bg-[theme(colors.hex-black)] h-[100%] relative z-1">
-          <div
+    <div className={`${layoutStyle.content}`}>
+      <div className="frame p-[40px] bg-[theme(colors.hex-black)] h-[100%] relative z-1">
+          <button type="button"
             className={`${layoutStyle.logoOnOff} absolute bottom-1 left-[50%] w-[29px] h-[29px]`}
             onClick={switchScreenOff}
+            aria-label="Allumer ou éteindre l'écran"
           >
             <FontAwesomeIcon
               icon={faPowerOff}
@@ -46,7 +44,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
                 isTurnedOff ? layoutStyle.off : layoutStyle.on
               }`}
             />
-          </div>
+          </button>
           <div
             className={` ${layoutStyle.siteContainer} z-2 w-full h-full ${
               isTurnedOff ? layoutStyle.screenOff : ""
@@ -54,13 +52,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
           >
             <div
               className={`${layoutStyle.wrapper} ${
-                isHome
-                  ? layoutStyle.home
-                  : isAbout
-                  ? layoutStyle.about
-                  : !isHome || !isAbout
-                  ? layoutStyle.bgSite
-                  : ""
+                layoutStyle.bgSite                
               }`}
               style={{
                 backgroundImage: backgroundImage
@@ -87,8 +79,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         <div className="overframe w-[40px] h-[100%] fixed top-0 left-0 z-50 bg-[theme(colors.hex-black)]"></div>
-      </body>
-    </html>
+    </div>
   );
 }
 
@@ -97,7 +88,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="fr" className={abrilFatface.variable}>
       <body suppressHydrationWarning={true} className="antialiased">
         <BackgroundProvider>
-          <LayoutContent>{children}</LayoutContent>
+            <LayoutContent>{children}</LayoutContent>
         </BackgroundProvider>
       </body>
     </html>

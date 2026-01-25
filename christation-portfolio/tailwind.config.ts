@@ -30,6 +30,7 @@ const config: Config = {
 
         'rgba-mainColor': 'rgba(8, 55, 233, 1)',
         'rgba-mainColorLight': 'rgba(8, 55, 233, 0.7)',
+        'rgba-mainColorLighter': 'rgba(8, 55, 233, 0.25)',
 
         'aboutIDFond': 'rgba(8, 55, 233, 0.25)',
         'sidebarColor': 'rgba(8, 55, 233, 0.8)',

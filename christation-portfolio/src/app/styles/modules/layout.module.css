@@ -1,23 +1,33 @@
 :root {
-  --mainGradient : linear-gradient(180deg, theme('colors.rgba-mainColor') 0%, theme('colors.rgba-mainColorLight') 90%);
-  --aboutGradient : linear-gradient(180deg, theme('colors.rgba-mainColorLight') 0%, theme('colors.rgba-mainColor') 90%);
+  --mainGradient : linear-gradient(180deg, theme('colors.rgba-mainColor') 0%, theme('colors.rgba-mainColorLighter') 90%);
 }
 
-.logoOnOff .switch{
-  &:hover{
-    cursor: pointer;
-  }
+.content{
+  height: 100%;
+}
 
-  &.on{
-    color: theme('colors.hex-white');
-    transition: color 0.7s ease;
-  }
+.logoOnOff{
+  background: transparent;
+  border: none;
+  
+  .switch{
+    &:hover{
+      cursor: pointer;
+    }
 
-  &.off{
-    color: theme('colors.hex-red');
-    transition: color 0.7s ease;
+    &.on{
+      color: theme('colors.hex-white');
+      transition: color 0.7s ease;
+    }
+
+    &.off{
+      color: theme('colors.hex-red');
+      transition: color 0.7s ease;
+    }
   }
 }
+
+
 
 .siteContainer{
     opacity: 1;
@@ -46,13 +56,6 @@
       display: flex;
       flex-direction: column;
       height: 100%;
-
-      &.home{
-        background: var(--mainGradient);
-      }
-
-      &.about{
-        background-image: var(--aboutGradient);
-      }
+      background: var(--mainGradient);
     }
   }

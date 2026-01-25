@@ -1,5 +1,6 @@
 "use client";
-import { createContext, useContext, useEffect, useState } from "react";
+
+import { createContext, useContext, useEffect, useState, useMemo } from "react";
 import { usePathname } from "next/navigation";
 
 type BackgroundContextType = {
@@ -17,10 +18,17 @@ export const BackgroundProvider = ({ children }: { children: React.ReactNode }) 
     if (pathname !== '/'){
         setBackgroundImage(null);
     }
-  })
+  }, [pathname]);
+
+  const contextValue = useMemo<BackgroundContextType>(() => ({
+    backgroundImage,
+    setBackgroundImage,
+  }),
+  [backgroundImage]
+);
 
   return (
-    <BackgroundContext.Provider value={{ backgroundImage, setBackgroundImage }}>
+    <BackgroundContext.Provider value={contextValue}>
       {children}
     </BackgroundContext.Provider>
   );
