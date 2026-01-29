@@ -40,6 +40,11 @@
               text-align: center;
               padding-block: 0.3rem;
               transition: background-color 0.2s ease-in;
+
+              button{
+                border: none;
+                background-color: transparent;
+              }
             }
           }
         }

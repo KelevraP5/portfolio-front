@@ -1,0 +1,20 @@
+.logoOnOff{
+  background: transparent;
+  border: none;
+  
+  .switch{
+    &:hover{
+      cursor: pointer;
+    }
+
+    &.on{
+      color: theme('colors.hex-white');
+      transition: color 0.7s ease;
+    }
+
+    &.off{
+      color: theme('colors.hex-red');
+      transition: color 0.7s ease;
+    }
+  }
+}

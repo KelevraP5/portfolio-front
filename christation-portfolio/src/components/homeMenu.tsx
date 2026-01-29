@@ -1,14 +1,18 @@
 interface HomeMenuProps {
   imgSource : string;
+  imgWebP : string;
   imgAlt : string;
   nomMenu: string;
 }
 
-export function HomeMenu({ imgSource, imgAlt, nomMenu }: HomeMenuProps) {
+export function HomeMenu({ imgSource, imgWebP, imgAlt, nomMenu }: Readonly<HomeMenuProps>) {
   return (
     <div className="nav-home flex flex-col items-center gap-[0.5rem]">
       <div className="icone-menu w-[190px] h-[178px] bg-pink-500">
-        <img src={imgSource} alt={imgAlt} className="w-full h-full object-cover"/>
+        <picture>
+          <source srcSet={imgWebP} />
+          <img src={imgSource} alt={imgAlt} />
+        </picture>
       </div>
 
       <div className="nom-menu">

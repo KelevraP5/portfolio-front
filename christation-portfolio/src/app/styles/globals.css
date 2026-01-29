@@ -27,12 +27,15 @@
     font-weight: 400;
     line-height: 1.4;
     height: 100%;
-    color: theme('colors.hex-white');
   }
   
   header{
     flex-grow: 0;
     flex-shrink: 0;
+    
+    button{
+      color: theme('colors.hex-white');
+    }
   }
 
   main{
@@ -40,6 +43,7 @@
   }
 
   footer {
+    @apply font-contenu;
     flex-grow: 0;
     flex-shrink: 0;
     text-align: center;
@@ -97,9 +101,10 @@
     font-weight: 400;
   }
 
-  p, span, li {
-    @apply font-contenu;
+  p, span, li, button {
+    @apply font-contenu; 
     text-wrap: pretty;
+    color: theme('colors.hex-white');
   }
 
   a{

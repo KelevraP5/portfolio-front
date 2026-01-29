@@ -1,14 +1,10 @@
 import { graphqlClient } from "graphql/graphqlClient";
-import { GET_PAGES } from "graphql/queries";
+import { GET_FRONT_PAGE} from "graphql/queries";
 
-export async function fetchPages() {
-    const data = await graphqlClient.request(GET_PAGES);
+export async function getHomePage() {
+    const data = await graphqlClient.request(GET_FRONT_PAGE);
 
-    return data.pages.nodes.map((page: any) => ({
-        id: page.pageId,
-        title: page.title,
-        slug: page.slug,
-        isHomePage: page.isFrontPage,
-        link: page.link
-    }))
-};
+    console.log(data.nodeByUri.pageAccueil);
+    
+    return data.nodeByUri.pageAccueil;
+}

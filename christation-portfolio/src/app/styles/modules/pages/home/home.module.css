@@ -1,11 +1,11 @@
 .menuContainer {
-    .menuList{
-        .menuItem {
-            transition: filter 0.3s ease-in-out;
+    ul{
+        li{
+            button{
+                border: none;
+                background-color: transparent;
+                font-size: theme('fontSize.font-16px');
+            }
         }
-    }
-
-    .blurred {
-        filter: blur(5px);
     }
 }

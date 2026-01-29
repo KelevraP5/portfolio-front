@@ -1,4 +1,3 @@
-import "styles/globals.css";
 import style from "styles/modules/components/trophy.module.css";
 
 interface TrophyResumeProps {
