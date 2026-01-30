@@ -101,10 +101,15 @@
     font-weight: 400;
   }
 
-  p, span, li, button {
+  p, span, li {
     @apply font-contenu; 
     text-wrap: pretty;
     color: theme('colors.hex-white');
+  }
+
+  button{
+    @apply font-titre;
+    border: none;
   }
 
   a{
@@ -133,5 +138,3 @@
     transform: translateX(40px);
   }
 }
-
-@layer utilities {} 

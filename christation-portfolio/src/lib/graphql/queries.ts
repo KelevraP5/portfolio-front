@@ -11,7 +11,6 @@ query GetFrontPage {
             altText
             file
             filePath
-            sizes
             srcSet
           }
         }
@@ -20,7 +19,6 @@ query GetFrontPage {
             altText
             file
             filePath
-            sizes
             srcSet
           }
         }
@@ -30,7 +28,6 @@ query GetFrontPage {
             altText
             file
             filePath
-            sizes
             srcSet
           }
         }
@@ -39,7 +36,6 @@ query GetFrontPage {
             altText
             file
             filePath
-            sizes
             srcSet
           }
         }
@@ -49,7 +45,6 @@ query GetFrontPage {
             altText
             file
             filePath
-            sizes
             srcSet
           }
         }
@@ -58,7 +53,6 @@ query GetFrontPage {
             altText
             file
             filePath
-            sizes
             srcSet
           }
         }
@@ -68,7 +62,6 @@ query GetFrontPage {
             altText
             file
             filePath
-            sizes
             srcSet
           }
         }
@@ -77,7 +70,6 @@ query GetFrontPage {
             altText
             file
             filePath
-            sizes
             srcSet
           }
         }

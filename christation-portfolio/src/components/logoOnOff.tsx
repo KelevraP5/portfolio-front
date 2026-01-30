@@ -1,19 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
 
 import switchStyle from "styles/modules/components/logoOnOff.module.css";
 
 interface LogoOnOffProps {
-  initialState?: boolean; 
+  isTurnedOff: boolean;
+  toggle: () => void;
 }
 
-export default function LogoOnOff({ initialState = false }: Readonly<LogoOnOffProps>) {
-  const [isTurnedOff, setIsTurnedOff] = useState(initialState);
-
-  const toggle = () => setIsTurnedOff(prev => !prev);
+export default function LogoOnOff({ isTurnedOff, toggle, }: Readonly<LogoOnOffProps>) {
 
   return (
     <button

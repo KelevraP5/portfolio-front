@@ -1,0 +1,50 @@
+.menuButton{
+    display: inline-block;
+    width: 100%;
+
+    background-color: transparent;
+    font-family: theme("fontFamily.titre");
+    font-size: theme("fontSize.font-20px");
+    color: theme('colors.hex-white');
+
+    border: 1rem solid theme("colors.hex-white");
+    border-image: url("../../../../../public/cadreMenu.svg") 25 fill / 100px;
+    text-align: center;
+    padding: 1rem;
+
+    transition: border 0.3s ease-in-out;
+
+    &::first-letter{
+        text-transform: uppercase;
+    }
+
+    &:hover{
+        cursor: pointer;
+        border: 1rem solid theme("colors.hex-secondaryColor");
+        border-image: url("../../../../../public/cadreMenuHover.svg") 25 fill / 100px;
+
+    }
+}
+
+.sendButton{
+    display: inline-block;
+    width: 100%;
+
+    background-color: transparent;
+    font-family: theme("fontFamily.titre");
+    font-size: theme("fontSize.font-20px");
+    color: theme('colors.hex-white');
+
+    border: 1rem solid theme("colors.hex-secondaryColor");
+    border-image: url("../../../../../public/cadreMenuHover.svg") 25 fill / 100px;
+    text-align: center;
+    padding: 1rem;
+
+    transition: border 0.3s ease-in-out;
+
+    &:hover{
+        cursor: pointer;
+        border: 1rem solid theme("colors.hex-white");
+        border-image: url("../../../../../public/cadreMenu.svg") 25 fill / 100px;
+    }
+}

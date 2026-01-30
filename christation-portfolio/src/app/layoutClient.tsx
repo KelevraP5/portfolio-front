@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { BackgroundProvider, useBackground } from "../contexts/HomeBgContext";
+import { BackgroundProvider } from "../contexts/HomeBgContext";
 
 import layoutStyle from "styles/modules/layout.module.css";
 
@@ -24,15 +24,15 @@ export default function LayoutClient({ children }: Readonly<LayoutClientProps>) 
   const [isTurnedOff, setIsTurnedOff] = useState(false);
 
   return (
-    <BackgroundProvider>
+
       <div className={layoutStyle.content}>
         <div className={`frame p-[40px] bg-[theme(colors.hex-black)] h-[100%] relative z-1`}>
           
           {/* Bouton Logo On/Off */}
-          <LogoOnOff />
+          <LogoOnOff isTurnedOff={isTurnedOff} toggle={() => setIsTurnedOff((prev => !prev))}/>
 
           {/* Conteneur principal du site */}
-          <div className={`${layoutStyle.siteContainer} z-2 w-full h-full`}>
+          <div className={`${layoutStyle.siteContainer} z-2 w-full h-full ${isTurnedOff ? layoutStyle.screenOff : ""}`}>
             <div className={`${layoutStyle.wrapper} ${layoutStyle.bgSite}`}>
 
               {/* Header + Sidebar */}
@@ -41,7 +41,9 @@ export default function LayoutClient({ children }: Readonly<LayoutClientProps>) 
                 <TrophySidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
               </div>
 
-              <main className="w-full h-full overflow-hidden">{children}</main>
+              <BackgroundProvider>
+                <main className="w-full h-full overflow-hidden">{children}</main>
+              </BackgroundProvider>
              
               <Footer />
             </div>
@@ -51,6 +53,5 @@ export default function LayoutClient({ children }: Readonly<LayoutClientProps>) 
         {/* Overframe permet de faire en sorte que la sidebar passe à l'intérieur de l'écran et non par dessus le cadre */}
         <div className="overframe w-[40px] h-[100%] fixed top-0 left-0 z-50 bg-[theme(colors.hex-black)]"></div>
       </div>
-    </BackgroundProvider>
   );
 }

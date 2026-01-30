@@ -12,7 +12,7 @@ type RootLayoutProps = Readonly<{
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="fr" className={abrilFatface.variable}>
-      <body className="antialiased">
+      <body className="antialiased" suppressHydrationWarning={true}>
           <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
