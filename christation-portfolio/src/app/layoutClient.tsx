@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { BackgroundProvider } from "../contexts/HomeBgContext";
+import { useBackground } from "../contexts/HomeBgContext";
 
 import layoutStyle from "styles/modules/layout.module.css";
 
@@ -17,6 +17,8 @@ interface LayoutClientProps {
 }
 
 export default function LayoutClient({ children }: Readonly<LayoutClientProps>) {
+  const { backgroundImage, defaultBackground } = useBackground();
+  const bgToShow = backgroundImage ?? defaultBackground;
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const closeSidebar = () => setIsSidebarOpen(false);
@@ -27,27 +29,32 @@ export default function LayoutClient({ children }: Readonly<LayoutClientProps>) 
 
       <div className={layoutStyle.content}>
         <div className={`frame p-[40px] bg-[theme(colors.hex-black)] h-[100%] relative z-1`}>
-          
-          {/* Bouton Logo On/Off */}
-          <LogoOnOff isTurnedOff={isTurnedOff} toggle={() => setIsTurnedOff((prev => !prev))}/>
 
           {/* Conteneur principal du site */}
           <div className={`${layoutStyle.siteContainer} z-2 w-full h-full ${isTurnedOff ? layoutStyle.screenOff : ""}`}>
-            <div className={`${layoutStyle.wrapper} ${layoutStyle.bgSite}`}>
+            <div className={`${layoutStyle.wrapper} ${layoutStyle.bgSite}`} style={{
+                backgroundImage: bgToShow
+                  ? `url(${bgToShow.fallback})`
+                  : undefined,
+                  transition: "background-image 0.25s ease-in-out"
+              }}>
 
               {/* Header + Sidebar */}
               <div className="header-trophies">
                 <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-                <TrophySidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
+                <aside>
+                  <TrophySidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
+                </aside>
               </div>
 
-              <BackgroundProvider>
-                <main className="w-full h-full overflow-hidden">{children}</main>
-              </BackgroundProvider>
-             
+              <main className="w-full h-full overflow-hidden">{children}</main>
+              
               <Footer />
             </div>
           </div>
+
+          {/* Bouton Logo On/Off */}
+          <LogoOnOff isTurnedOff={isTurnedOff} toggle={() => setIsTurnedOff((prev => !prev))}/>
         </div>
 
         {/* Overframe permet de faire en sorte que la sidebar passe à l'intérieur de l'écran et non par dessus le cadre */}

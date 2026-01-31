@@ -1,76 +1,57 @@
 import { gql } from "graphql-request";
 
 export const GET_FRONT_PAGE = gql `
+
+fragment ImageFields on MediaItem {
+  altText
+  sourceUrl
+}
+
 query GetFrontPage {
   nodeByUri(uri: "/") {
     ... on Page {
-      title
       pageAccueil {
         imgBaseHome {
           node {
-            altText
-            file
-            filePath
-            srcSet
+            ...ImageFields
           }
         }
         imgBaseHomeWebp {
           node {
-            altText
-            file
-            filePath
-            srcSet
+            ...ImageFields
           }
         }
         menu1
         menu1Img {
           node {
-            altText
-            file
-            filePath
-            srcSet
+            ...ImageFields
           }
         }
         menu1Webp {
           node {
-            altText
-            file
-            filePath
-            srcSet
+            ...ImageFields
           }
         }
         menu2
         menu2Img {
           node {
-            altText
-            file
-            filePath
-            srcSet
+            ...ImageFields
           }
         }
         menu2Webp {
           node {
-            altText
-            file
-            filePath
-            srcSet
+           ...ImageFields
           }
         }
         menu3
         menu3Img {
           node {
-            altText
-            file
-            filePath
-            srcSet
+            ...ImageFields
           }
         }
         menu3Webp{
           node {
-            altText
-            file
-            filePath
-            srcSet
+            ...ImageFields
           }
         }
       }

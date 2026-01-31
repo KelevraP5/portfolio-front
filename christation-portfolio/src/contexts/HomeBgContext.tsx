@@ -3,29 +3,50 @@
 import { createContext, useContext, useEffect, useState, useMemo } from "react";
 import { usePathname } from "next/navigation";
 
-type BackgroundContextType = {
-  backgroundImage: string | null;
-  setBackgroundImage: (img: string | null) => void;
+type BgImage = {
+  webp?: string;
+  fallback: string;
 };
 
-const BackgroundContext = createContext<BackgroundContextType | undefined>(undefined);
+type BackgroundContextType = {
+  backgroundImage: BgImage | null;
+  setBackgroundImage: (img: BgImage | null) => void;
+
+  defaultBackground: BgImage | null;
+  setDefaultBackground: (img: BgImage) => void;
+};
+
+/* ✅ Création du Context */
+const BackgroundContext = createContext<BackgroundContextType | undefined>(
+  undefined
+);
 
 export const BackgroundProvider = ({ children }: { children: React.ReactNode }) => {
-  const [backgroundImage, setBackgroundImage] = useState<string | null>(null);
+  
+  const [backgroundImage, setBackgroundImage] = useState<BgImage | null>(null);
+  const [defaultBackground, setDefaultBackground] = useState<BgImage | null>(null);
+
   const pathname = usePathname();
 
+  /* ✅ Reset si on quitte "/" */
   useEffect(() => {
-    if (pathname !== '/'){
-        setBackgroundImage(null);
+    if (pathname !== "/") {
+      setBackgroundImage(null);
+      setDefaultBackground(null);
     }
   }, [pathname]);
 
-  const contextValue = useMemo<BackgroundContextType>(() => ({
-    backgroundImage,
-    setBackgroundImage,
-  }),
-  [backgroundImage]
-);
+  /* ✅ useMemo pour éviter warning React */
+  const contextValue = useMemo(
+    () => ({
+      backgroundImage,
+      setBackgroundImage,
+
+      defaultBackground, 
+      setDefaultBackground
+    }),
+    [backgroundImage, defaultBackground]
+  );
 
   return (
     <BackgroundContext.Provider value={contextValue}>
@@ -34,10 +55,13 @@ export const BackgroundProvider = ({ children }: { children: React.ReactNode }) 
   );
 };
 
+/* ✅ Hook */
 export const useBackground = () => {
   const context = useContext(BackgroundContext);
+
   if (!context) {
     throw new Error("useBackground must be used within a BackgroundProvider");
   }
+
   return context;
 };
