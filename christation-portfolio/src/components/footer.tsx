@@ -19,7 +19,7 @@ export default function Footer(){
                     </div>
 
                     <div className="logo-linkedin w-[20px] h-[21px]">
-                        <Link href="https://www.linkedin.com/in/christophe-nehlig/" target="_blank">
+                        <Link href="https://www.linkedin.com/in/christophe-nehlig/" target="_blank" aria-label="Retrouvez moi sur Linkedin">
                             <FontAwesomeIcon icon={faLinkedin} className="logo w-full h-full"/>
                         </Link>
                     </div>

@@ -39,10 +39,7 @@
         "./src/app/styles/*"
       ],
       "assets/*" : [
-        "./src/assets/*"
-      ],
-      "img/*": [
-        "./public/*"
+        "./public/assets/*"
       ],
       "graphql/*": [
         "./src/lib/graphql/*"

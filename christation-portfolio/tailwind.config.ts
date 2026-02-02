@@ -32,9 +32,7 @@ const config: Config = {
         'rgba-mainColorLight': 'rgba(8, 55, 233, 0.7)',
         'rgba-mainColorLighter': 'rgba(8, 55, 233, 0.25)',
 
-        'aboutIDFond': 'rgba(8, 55, 233, 0.25)',
         'sidebarColor': 'rgba(8, 55, 233, 0.8)',
-        'aboutMenuFond': 'rgba(8, 55, 233, 0.9)',
       
         'hex-secondaryColor': '#eed00b',
         'rgb-secondaryColor': '238, 208, 11',

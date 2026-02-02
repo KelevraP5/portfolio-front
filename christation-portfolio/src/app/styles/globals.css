@@ -35,6 +35,7 @@
     
     button{
       color: theme('colors.hex-white');
+      background-color: transparent;
     }
   }
 
@@ -127,7 +128,7 @@
 
 @layer components {
   .sidebar{
-    background-color: theme('colors.sidebarColor');
+    background-color: theme('colors.rgba-mainColor');
     position: fixed;
     left: -50lvw;
     transition: all 0.8s ease-in-out;

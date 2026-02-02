@@ -11,3 +11,11 @@
         margin-left: 169px;
     }
 }
+
+@media screen and (max-width: 1000px ) {
+    .menuContainer{
+        ul{
+            margin: 0 auto;
+        }
+    }
+}

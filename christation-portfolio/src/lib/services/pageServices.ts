@@ -1,10 +1,10 @@
-import { graphqlClient } from "graphql/graphqlClient";
-import { GET_FRONT_PAGE} from "graphql/queries";
+import { GET_FRONT_PAGE } from "../graphql/queries";
+import { wpFetch } from "../wpFetch";
 
 export async function getHomePage() {
-    const data = await graphqlClient.request(GET_FRONT_PAGE);
+  const data = await wpFetch(GET_FRONT_PAGE);  
 
-    const frontPageData = data.nodeByUri.pageAccueil
-    
-    return frontPageData;
+  const dataHome = data.nodeByUri.pageAccueil;
+
+  return dataHome;
 }

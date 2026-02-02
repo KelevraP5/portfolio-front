@@ -6,6 +6,8 @@ import { useBackground } from "../contexts/HomeBgContext";
 
 import layoutStyle from "styles/modules/layout.module.css";
 
+import { LanguageProvider } from "../contexts/LanguageContext";
+
 import { Header } from "components/header";
 import { TrophySidebar } from "components/trophySidebar";
 import Footer from "components/footer";
@@ -34,17 +36,18 @@ export default function LayoutClient({ children }: Readonly<LayoutClientProps>) 
           <div className={`${layoutStyle.siteContainer} z-2 w-full h-full ${isTurnedOff ? layoutStyle.screenOff : ""}`}>
             <div className={`${layoutStyle.wrapper} ${layoutStyle.bgSite}`} style={{
                 backgroundImage: bgToShow
-                  ? `url(${bgToShow.fallback})`
+                  ? `url(${bgToShow.webp})`
                   : undefined,
                   transition: "background-image 0.25s ease-in-out"
               }}>
 
               {/* Header + Sidebar */}
               <div className="header-trophies">
-                <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-                <aside>
-                  <TrophySidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
-                </aside>
+                <LanguageProvider>
+                  <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+                </LanguageProvider>
+                
+                <TrophySidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
               </div>
 
               <main className="w-full h-full overflow-hidden">{children}</main>

@@ -6,11 +6,11 @@ import { abrilFatface } from "./styles/fonts";
 import { BackgroundProvider } from "../contexts/HomeBgContext";
 import LayoutClient from "@/src/app/layoutClient";
 
-type RootLayoutProps = Readonly<{
+type RootLayoutProps = {
   children : React.ReactNode;
-}>
+}
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
     <html lang="fr" className={abrilFatface.variable}>
       <body className="antialiased" suppressHydrationWarning={true}>
