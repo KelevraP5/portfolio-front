@@ -1,11 +1,41 @@
+
 import { getHomePage } from "graphqlServices/pageServices";
 import HomeClient from "./homeClient";
 
-export default async function Home() {
+import { Metadata } from "next";
 
+export default async function Home() {
   const home = await getHomePage();
 
   return (
-    <HomeClient page={home} />
+    <>
+      {/* CONTENU SEO SERVEUR */}
+      <section className="sr-only absolute w-[1px] h-[1px] p-0 m-[-1px] overflow-hidden">
+        <h1>Portfolio de Christophe Nehlig, Webdesigner et Développeur Front-end</h1>
+
+        <p>
+          Je suis webdesigner spécialisé en interfaces modernes,
+          UX/UI et développement front-end.
+          Découvrez mes réalisations, mon parcours et mes compétences.
+        </p>
+
+        <nav>
+          <ul>
+            <li><a href="/a-propos">À propos : Parcours et compétences</a></li>
+            <li><a href="/realisations">Réalisations webdesign et développement web</a></li>
+            <li><a href="/contact">Contact : Envoyez moi un message</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      {/* CONTENU VISUEL / INTERACTIF */}
+      <HomeClient page={home} />
+    </>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Portfolio de Christophe Nehlig, Webdesigner et Développeur Front-end",
+  description:
+    "Portfolio de Christophe Nehlig, webdesigner spécialisé en UX/UI et développement front-end. Découvrez mes projets et compétences.",
+};

@@ -36,7 +36,7 @@ export default function LayoutClient({ children }: Readonly<LayoutClientProps>) 
           <div className={`${layoutStyle.siteContainer} z-2 w-full h-full ${isTurnedOff ? layoutStyle.screenOff : ""}`}>
             <div className={`${layoutStyle.wrapper} ${layoutStyle.bgSite}`} style={{
                 backgroundImage: bgToShow
-                  ? `url(${bgToShow.webp})`
+                  ? `url(${bgToShow.src})`
                   : undefined,
                   transition: "background-image 0.25s ease-in-out"
               }}>

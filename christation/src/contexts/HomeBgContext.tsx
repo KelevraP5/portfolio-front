@@ -4,8 +4,8 @@ import { createContext, useContext, useEffect, useState, useMemo } from "react";
 import { usePathname } from "next/navigation";
 
 type BgImage = {
-  webp?: string;
-  fallback: string;
+  src: string;
+  alt?: string;
 };
 
 type BackgroundContextType = {

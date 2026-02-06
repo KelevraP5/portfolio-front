@@ -15,7 +15,7 @@ export async function wpFetch(query: string, variables = {}) {
     }),
 
     next: {
-      revalidate: 600,
+      revalidate: 600, // cache de 10 min
     },
   });
 
@@ -24,7 +24,7 @@ export async function wpFetch(query: string, variables = {}) {
   if (json.errors) {
     console.error("GraphQL Error:", json.errors);
     throw new Error("Erreur GraphQL");
-  }  
-
+  };
+  
   return json.data;
 }

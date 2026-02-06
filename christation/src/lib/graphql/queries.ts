@@ -16,18 +16,8 @@ query GetFrontPage {
             ...ImageFields
           }
         }
-        imgBaseHomeWebp {
-          node {
-            ...ImageFields
-          }
-        }
         menu1
         menu1Img {
-          node {
-            ...ImageFields
-          }
-        }
-        menu1Webp {
           node {
             ...ImageFields
           }
@@ -38,18 +28,8 @@ query GetFrontPage {
             ...ImageFields
           }
         }
-        menu2Webp {
-          node {
-           ...ImageFields
-          }
-        }
         menu3
         menu3Img {
-          node {
-            ...ImageFields
-          }
-        }
-        menu3Webp{
           node {
             ...ImageFields
           }

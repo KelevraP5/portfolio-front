@@ -13,9 +13,9 @@ export function SwitchLangue(){
     return (
         <button type="button" onClick={toggleLanguage} aria-label="Changer la langue" className="cursor-pointer">
             {language === "fr" ? (
-                <Image src={iconeFR} width={60} height={60} alt="langue française" priority/>
+                <Image src={iconeFR} width={60} height={60} alt="langue française"/>
             ) : (
-                <Image src={iconeENG} width={60} height={60} alt="English language" priority/>
+                <Image src={iconeENG} width={60} height={60} alt="English language"/>
             )}
         </button>
     );

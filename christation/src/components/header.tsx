@@ -23,7 +23,7 @@ export function Header({ isSidebarOpen, setIsSidebarOpen }: Readonly<HeaderProps
         <div className="left-side flex gap-[32px]">
           <button type="button" className="trophees-btn flex gap-[8px] cursor-pointer border-none bg-transparent" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
 
-            <Image src={iconeTrophee} width={60} height={60} alt="langue française" priority/>
+            <Image src={iconeTrophee} width={60} height={60} alt="icône d'un trophée"/>
 
             <div className="trophees-txt content-center cursor-pointer">
               <span className="font-titre text-font-24px">Trophées</span>

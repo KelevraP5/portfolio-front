@@ -26,8 +26,6 @@ const config: Config = {
       },
       colors: {
         'hex-mainColor': '#0837e9',
-        'rgb-mainColor': 'rgb(8, 55, 233)',
-
         'rgba-mainColor': 'rgba(8, 55, 233, 1)',
         'rgba-mainColorLight': 'rgba(8, 55, 233, 0.7)',
         'rgba-mainColorLighter': 'rgba(8, 55, 233, 0.25)',
