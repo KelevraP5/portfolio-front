@@ -5,7 +5,7 @@ import HomeClient from "./homeClient";
 import { Metadata } from "next";
 
 export default async function Home() {
-  const home = await getHomePage();
+  const home = await getHomePage("FR");
 
   return (
     <>
@@ -35,7 +35,7 @@ export default async function Home() {
 }
 
 export const metadata: Metadata = {
-  title: "Portfolio de Christophe Nehlig, Webdesigner et Développeur Front-end",
+  title: "Portfolio de Christophe Nehlig, Webdesigner et Développeur Web Front-end",
   description:
-    "Portfolio de Christophe Nehlig, webdesigner spécialisé en UX/UI et développement front-end. Découvrez mes projets et compétences.",
+    "Portfolio de Christophe Nehlig, webdesigner spécialisé en UX/UI et développement web front-end. Découvrez mes projets et mes compétences.",
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useBackground } from "../contexts/HomeBgContext";
 
@@ -24,8 +24,14 @@ export default function LayoutClient({ children }: Readonly<LayoutClientProps>) 
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const closeSidebar = () => setIsSidebarOpen(false);
-
   const [isTurnedOff, setIsTurnedOff] = useState(false);
+
+  useEffect(() => {
+  if (bgToShow) {
+    const img = new Image();
+    img.src = bgToShow.src;
+  }
+}, [bgToShow]);
 
   return (
 
@@ -38,7 +44,7 @@ export default function LayoutClient({ children }: Readonly<LayoutClientProps>) 
                 backgroundImage: bgToShow
                   ? `url(${bgToShow.src})`
                   : undefined,
-                  transition: "background-image 0.25s ease-in-out"
+                  transition: "background-image 0.35s ease-in-out"
               }}>
 
               {/* Header + Sidebar */}

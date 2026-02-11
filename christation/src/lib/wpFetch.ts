@@ -1,3 +1,4 @@
+import { log } from "node:console";
 
 export async function wpFetch(query: string, variables = {}) {
 
@@ -14,12 +15,12 @@ export async function wpFetch(query: string, variables = {}) {
       variables,
     }),
 
-    next: {
-      revalidate: 600, // cache de 10 min
-    },
+    // next: {
+    //   revalidate: 3600, // cache de 1h
+    // },
   });
 
-  const json = await response.json();
+  const json = await response.json();  
 
   if (json.errors) {
     console.error("GraphQL Error:", json.errors);

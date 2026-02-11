@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, useMemo } from "react";
 import { usePathname } from "next/navigation";
+import { useLanguage } from "./LanguageContext";
 
 type BgImage = {
   src: string;
@@ -22,6 +23,7 @@ const BackgroundContext = createContext<BackgroundContextType | undefined>(
 );
 
 export const BackgroundProvider = ({ children }: { children: React.ReactNode }) => {
+  const { language } = useLanguage();
   
   const [backgroundImage, setBackgroundImage] = useState<BgImage | null>(null);
   const [defaultBackground, setDefaultBackground] = useState<BgImage | null>(null);
@@ -30,26 +32,23 @@ export const BackgroundProvider = ({ children }: { children: React.ReactNode }) 
 
   /* ✅ Reset si on quitte "/" */
   useEffect(() => {
-    if (pathname !== "/") {
+    if (pathname !== "/" && pathname !== "/en") {
       setBackgroundImage(null);
       setDefaultBackground(null);
     }
-  }, [pathname]);
+  }, [pathname]);  
 
   /* ✅ useMemo pour éviter warning React */
-  const contextValue = useMemo(
-    () => ({
-      backgroundImage,
-      setBackgroundImage,
-
-      defaultBackground, 
-      setDefaultBackground
-    }),
-    [backgroundImage, defaultBackground]
-  );
+  const contextValue = useMemo(() => ({
+    backgroundImage,
+    setBackgroundImage,
+    
+    defaultBackground,
+    setDefaultBackground
+  }), [backgroundImage, defaultBackground]);
 
   return (
-    <BackgroundContext.Provider value={contextValue}>
+    <BackgroundContext.Provider key={language} value={contextValue}>
       {children}
     </BackgroundContext.Provider>
   );
