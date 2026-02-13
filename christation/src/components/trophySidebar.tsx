@@ -1,18 +1,27 @@
-import {useRef, useEffect} from "react";
+import { useRef, useEffect } from "react";
 
 import { TrophyResume } from "./trophyResume";
+import { useTranslation } from "../traductions/tradFunction";
+
+import { tradTrophies } from "../traductions/tradTrophies";
 
 interface TrophySidebarProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export function TrophySidebar({ isOpen, onClose }: Readonly<TrophySidebarProps>) {
+export function TrophySidebar({
+  isOpen,
+  onClose,
+}: Readonly<TrophySidebarProps>) {
   const sidebarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node)
+      ) {
         onClose();
       }
     };
@@ -23,21 +32,24 @@ export function TrophySidebar({ isOpen, onClose }: Readonly<TrophySidebarProps>)
     };
   }, [onClose]);
 
-  const trophies = [
-    {id: 1, trophyName: "trophée 1", trophyResume: "voici le résumé de ce trophée. Bravo !"},
-    {id: 2, trophyName: "trophée 2", trophyResume: "voici le résumé de ce trophée. Bravo !"},
-    {id: 3, trophyName: "trophée 3", trophyResume: "voici le résumé de ce trophée. Bravo !"},
-    {id: 4, trophyName: "trophée 4", trophyResume: "voici le résumé de ce trophée. Bravo !"},
-  ];
+  const translatedTrophies = useTranslation(tradTrophies);
 
   return (
-    <aside ref={sidebarRef} className={`sidebar h-[calc(100%-180px)] w-[262px] z-50 ${
-      isOpen ? 'open' : ''}`}>
+    <div
+      ref={sidebarRef}
+      className={`sidebar h-[calc(100%-180px)] w-[262px] z-50 ${
+        isOpen ? "open" : ""
+      }`}
+    >
       <ul className="list-trophies flex flex-col gap-[1rem] py-[1rem]">
-          {trophies.map((trophy) => (
-            <TrophyResume key={trophy.id} trophyName={trophy.trophyName} trophyResume={trophy.trophyResume} />
-          ))}
-        </ul>
-    </aside>
+        {translatedTrophies.map((trophy) => (
+          <TrophyResume
+            key={trophy.id}
+            trophyName={trophy.trophyName}
+            trophyResume={trophy.trophySummary}
+          />
+        ))}
+      </ul>
+    </div>
   );
 }

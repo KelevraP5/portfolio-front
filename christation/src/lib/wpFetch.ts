@@ -1,4 +1,3 @@
-import { log } from "node:console";
 
 export async function wpFetch(query: string, variables = {}) {
 
@@ -15,9 +14,9 @@ export async function wpFetch(query: string, variables = {}) {
       variables,
     }),
 
-    // next: {
-    //   revalidate: 3600, // cache de 1h
-    // },
+    next: {
+      revalidate: 600, // cache de 10min
+    },
   });
 
   const json = await response.json();  

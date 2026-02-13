@@ -56,3 +56,17 @@
     }
   }
 }
+
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 20;
+
+  cursor: pointer;
+}
+
+.noEvents{
+  pointer-events: none;
+}

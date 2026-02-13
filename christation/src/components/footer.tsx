@@ -2,39 +2,34 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 import Link from "next/link";
+import { useTranslation } from "../traductions/tradFunction";
+import { tradText } from "../traductions/tradText";
 
 export default function Footer(){
+
+    const translatedText = useTranslation(tradText);
+
     return(
         <footer className="w-full h-[60px] py-[0.5rem] cursor-default">
-            <div className="footer-wrap h-full m-auto flex justify-between items-center">
-                <div className="element author-site px-[0.5rem]">
-                    <p>Ce site a été designé par Christophe Nehlig. 2025. Tous droits réservés.</p>
+            <div className="footer-wrap h-full m-auto flex justify-evenly items-center">
+
+                <div className="texte-mentions px-[0.5rem]">
+                    <Link href="" aria-label={translatedText.screenReader.legal}>{translatedText.legal}</Link>
                 </div>
 
                 <div className="line"></div>
 
-                <div className="element rs flex gap-[0.5rem] px-[0.5rem]">
-                    <div className="texte">
-                        <p>Retrouvez moi sur </p>
+                <div className="flex gap-[0.5rem] px-[0.5rem]">
+                    <div className="texte-rs">
+                        <p>{translatedText.socials}</p>
                     </div>
 
                     <div className="logo-linkedin w-[20px] h-[21px]">
-                        <Link href="https://www.linkedin.com/in/christophe-nehlig/" target="_blank" aria-label="Retrouvez moi sur Linkedin">
+                        <Link href="https://www.linkedin.com/in/christophe-nehlig/" target="_blank" aria-label={translatedText.screenReader.socials}>
                             <FontAwesomeIcon icon={faLinkedin} className="logo w-full h-full"/>
                         </Link>
                     </div>
-                </div>
 
-                <div className="line"></div>
-
-                <div className="element mentions px-[0.5rem]">
-                    <Link href="">Mentions légales</Link>
-                </div>
-
-                <div className="line"></div>
-
-                <div className="element infos-technos px-[0.5rem]">
-                    <p>Site fait avec Wordpress et Next.js</p>
                 </div>
             </div>
         </footer>

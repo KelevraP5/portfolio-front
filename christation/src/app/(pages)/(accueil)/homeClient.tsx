@@ -32,9 +32,9 @@ export default function HomeClient({ page }: Readonly<{ page : HomePageData}>) {
     }, [baseBg]);
 
     const menus = [
-        {menuName: page.menu1, href: "/a-propos", bgImg: page.menu1Img.node.sourceUrl, bgImgAlt:page.menu1Img.node.altText ?? ""},
-        {menuName: page.menu2, href: "/realisations", bgImg: page.menu2Img.node.sourceUrl, bgImgAlt:page.menu2Img.node.altText ?? ""},
-        {menuName: page.menu3, href: "/contact", bgImg: page.menu3Img.node.sourceUrl, bgImgAlt:page.menu3Img.node.altText ?? ""}
+        {menuName: page.menu1, href: "/a-propos", bgImg: page.menu1Img.node.sourceUrl, bgImgAlt:page.menu1Img.node.altText ?? "", description: "aller sur la page à propos de moi"},
+        {menuName: page.menu2, href: "/realisations", bgImg: page.menu2Img.node.sourceUrl, bgImgAlt:page.menu2Img.node.altText ?? "", description: "aller sur la page mes réalisations"},
+        {menuName: page.menu3, href: "/contact", bgImg: page.menu3Img.node.sourceUrl, bgImgAlt:page.menu3Img.node.altText ?? "", description: "aller sur la page contact"}
     ];
 
     return (   
@@ -42,7 +42,7 @@ export default function HomeClient({ page }: Readonly<{ page : HomePageData}>) {
             <ul>
                 {menus.map((menu) => (
                     <li key={menu.href} onMouseEnter={() => setBackgroundImage({src:menu.bgImg, alt: menu.bgImgAlt})} onMouseLeave={() => setBackgroundImage(null)}>
-                        <HomeMenu menuTxt={menu.menuName} href={menu.href}></HomeMenu>
+                        <HomeMenu menuTxt={menu.menuName} href={menu.href} screenReadMsg={menu.description}></HomeMenu>
                     </li>
                 ))}
             </ul>

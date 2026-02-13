@@ -8,6 +8,7 @@ fragment ImageFields on MediaItem {
 }
 
 query GetFrontPage($uri: String! = "/", $language: LanguageCodeEnum = EN) {
+
   nodeByUri(uri: $uri) {
     ... on Page {
       pageAccueil {
@@ -35,6 +36,7 @@ query GetFrontPage($uri: String! = "/", $language: LanguageCodeEnum = EN) {
           }
         }
       }
+
       translation(language: $language) {
         pageAccueil {
           imgBaseHome {
@@ -57,8 +59,8 @@ query GetFrontPage($uri: String! = "/", $language: LanguageCodeEnum = EN) {
           menu3
           menu3Img {
             node{
-            ...ImageFields
-          }
+              ...ImageFields
+            }
           }
         }
       }

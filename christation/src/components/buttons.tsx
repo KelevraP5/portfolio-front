@@ -4,12 +4,13 @@ import Link from "next/link";
 interface HomeMenuProps {
   menuTxt : string;
   href: string;
+  screenReadMsg: string;
 }
 
 // Menu de la page d'accueil
-export function HomeMenu({ menuTxt, href }: Readonly<HomeMenuProps>) {
+export function HomeMenu({ menuTxt, href, screenReadMsg }: Readonly<HomeMenuProps>) {
   return (
-    <Link href={href} className={homeMenuStyle.menuButton}>
+    <Link href={href} className={homeMenuStyle.menuButton} aria-label={screenReadMsg}>
       {menuTxt}
     </Link>
   );
@@ -18,11 +19,12 @@ export function HomeMenu({ menuTxt, href }: Readonly<HomeMenuProps>) {
 
 interface SendButtonProps {
   sendTxt : string;
+  screenReadMsg: string;
 }
 
 // Bouton d'envoi de formulaire
-export function SendButton({ sendTxt }: Readonly<SendButtonProps>){
+export function SendButton({ sendTxt, screenReadMsg }: Readonly<SendButtonProps>){
   return(
-    <button type="button" className={homeMenuStyle.sendButton}>{sendTxt}</button>
+    <button type="button" className={homeMenuStyle.sendButton} aria-label={screenReadMsg}>{sendTxt}</button>
   );
 }

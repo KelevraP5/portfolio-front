@@ -6,7 +6,11 @@ import { usePathname, useRouter } from "next/navigation";
 import iconeFR from "assets/iconeFR.svg";
 import iconeENG from "assets/iconeENG.svg";
 
-export function SwitchLangue() {
+type SwitchLangueProps = {
+  screenReadMsgSwitch: string;
+}
+
+export function SwitchLangue({ screenReadMsgSwitch } : Readonly<SwitchLangueProps>) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -23,7 +27,7 @@ export function SwitchLangue() {
   }
 
   return (
-    <button onClick={switchLang} aria-label="Changer la langue" className="cursor-pointer">
+    <button onClick={switchLang} aria-label={screenReadMsgSwitch} className="cursor-pointer">
       {isEN ? (
         <Image src={iconeENG} width={60} height={60} alt="English" />
       ) : (

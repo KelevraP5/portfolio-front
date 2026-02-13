@@ -55,20 +55,29 @@
         border-top-color: theme('colors.hex-white');
     }
 
+    .footer-wrap{
+      width: 85%;
+    }
+
     .line{
       width: fit-content;
       height: 100%;
       border-right: 1px solid theme('colors.hex-white');
     }
+
+    .texte-mentions{
+      text-transform: capitalize;
+    }
+
+    .texte-rs::first-letter{
+      text-transform: uppercase;
+    }
   
-    .logo-linkedin:hover .logo, .mentions:hover a{
+    .logo-linkedin:hover .logo, .texte-mentions:hover a{
       color: theme('colors.hex-secondaryColor');
       transition: color 0.5s ease-in-out;
     }
-
-    .footer-wrap{
-      width: 85%;
-    }
+   
 
     @media  screen and (max-width : 1300px) {
         .footer-wrap{
