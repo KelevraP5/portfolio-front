@@ -7,7 +7,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "http",
-        hostname: process.env.DOMAIN_NAME!,
+        hostname: "christation.local",
+        pathname: "/wp-content/uploads/**",
       },
     ],
   }

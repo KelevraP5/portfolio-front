@@ -17,3 +17,16 @@ export type HomePageData = {
     menu3 : string;
     menu3Img : MediaNode;
 };
+
+export type AboutPageData = {
+    imgBaseAPropos: MediaNode;
+    
+    infos1 : string;
+    infos1Img : MediaNode;
+
+    infos2 : string;
+    infos2Img : MediaNode;
+
+    infos3 : string;
+    infos3Img : MediaNode;
+};

@@ -22,8 +22,8 @@ export default async function HomeEN() {
         <nav>
           <ul>
             <li><a href="/en/about">About: Background and skills</a></li>
-            <li><a href="/projects">Web design and web development projects</a></li>
-            <li><a href="/contact">Contact: Send me a message</a></li>
+            <li><a href="/en/projects">Web design and web development projects</a></li>
+            <li><a href="/en/contact">Contact: Send me a message</a></li>
           </ul>
         </nav>
       </section>

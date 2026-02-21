@@ -22,5 +22,8 @@ export async function pageDataFunction<T>( params: PageDataProps<T> ): Promise<T
 
     const result: T = selector(node);
 
+    // console.log(result);
+    
+    
     return result;
 }

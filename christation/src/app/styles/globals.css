@@ -3,22 +3,23 @@
 @tailwind utilities;
 
 @layer base {
-  *{
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
-  ul, ol{
-      list-style: none;
+  ul,
+  ol {
+    list-style: none;
   }
 
   img {
-      vertical-align: bottom;
+    vertical-align: bottom;
   }
 
-  html{
-      height: 100%;
+  html {
+    height: 100%;
   }
 
   body {
@@ -27,19 +28,26 @@
     line-height: 1.4;
     height: 100%;
   }
-  
-  header{
+
+  header {
     flex-grow: 0;
     flex-shrink: 0;
-    
-    button{
-      color: theme('colors.hex-white');
-      background-color: transparent;
+
+    @media screen and (max-width: 500px){
+      .left-side{
+        width: 100%;
+
+        .menu-btn{
+          margin: 0 auto;
+        }
+      }
     }
   }
 
-  main{
+  main {
     flex-grow: 1;
+    width: 100%;
+    height: 100%;
   }
 
   footer {
@@ -52,49 +60,45 @@
     transition: border-top-color 0.7s ease-in-out;
 
     &:hover {
-        border-top-color: theme('colors.hex-white');
+      border-top-color: theme("colors.hex-white");
     }
 
-    .footer-wrap{
+    .footer-wrap {
       width: 85%;
     }
 
-    .line{
+    .line {
       width: fit-content;
       height: 100%;
-      border-right: 1px solid theme('colors.hex-white');
+      border-right: 1px solid theme("colors.hex-white");
     }
 
-    .texte-mentions{
+    .texte-mentions {
       text-transform: capitalize;
     }
 
-    .texte-rs::first-letter{
+    .texte-rs::first-letter {
       text-transform: uppercase;
     }
-  
-    .logo-linkedin:hover .logo, .texte-mentions:hover a{
-      color: theme('colors.hex-secondaryColor');
+
+    .logo-linkedin:hover .logo,
+    .texte-mentions:hover a {
+      color: theme("colors.hex-secondaryColor");
       transition: color 0.5s ease-in-out;
     }
-   
 
-    @media  screen and (max-width : 1300px) {
-        .footer-wrap{
-          width: 98%;
-        }
+    @media screen and (max-width: 1300px) {
+      .footer-wrap {
+        width: 98%;
+      }
     }
 
-    @media  screen and (max-width : 1123px){
-      border-top: 1px solid theme('colors.hex-white');
+    @media screen and (max-width: 1123px) {
+      border-top: 1px solid theme("colors.hex-white");
 
-      .element{
-        &.rs{
-          .texte{
-            display: none
-          }
-  
-          .logo-linkedin{
+      .element {
+        &.rs {
+          .logo-linkedin {
             width: 25px;
             height: 26px;
           }
@@ -103,27 +107,36 @@
     }
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-titre;
     text-wrap: balance;
     font-size: revert;
     font-weight: 400;
   }
 
-  p, span, li {
-    @apply font-contenu; 
+  p,
+  span,
+  li {
+    @apply font-contenu;
     text-wrap: pretty;
-    color: theme('colors.hex-white');
+    color: theme("colors.hex-white");
   }
 
-  button{
+  button {
     @apply font-titre;
     border: none;
+    color: theme("colors.hex-white");
+    background-color: transparent;
   }
 
-  a{
+  a {
     text-decoration: none;
-    color: theme('colors.hex-white');
+    color: theme("colors.hex-white");
   }
 
   .wrap {
@@ -135,15 +148,23 @@
 }
 
 @layer components {
-  .sidebar{
-    background-color: theme('colors.rgba-mainColor');
+  .sidebar {
+    background-color: theme("colors.rgba-mainColor");
     position: fixed;
-    left: -50lvw;
+    left: -50vw;
     transition: all 0.8s ease-in-out;
+
+    @media screen and (max-width: 600px) {
+      left: -150svw;
+    }
   }
 
-  .sidebar.open{
+  .sidebar.open {
     left: 0;
-    transform: translateX(40px);
+
+    @media screen and (max-width: 600px) {
+      bottom: 60;
+       width: 150px;
+    }
   }
 }

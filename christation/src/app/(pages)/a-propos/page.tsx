@@ -1,8 +1,11 @@
-"use client";
+import { getAProposPage } from "@/src/lib/services/pageServices";
 
-export default function About() {
+import AProposClient from "./aProposClient";
 
-  return (
-    <p>Page a propos de moi</p>
+export default async function APropos() {
+  const aPropos = await getAProposPage("FR");
+
+  return(
+    <AProposClient page={aPropos} />
   );
 }

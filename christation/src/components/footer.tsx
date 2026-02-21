@@ -20,11 +20,11 @@ export default function Footer(){
                 <div className="line"></div>
 
                 <div className="flex gap-[0.5rem] px-[0.5rem]">
-                    <div className="texte-rs">
+                    <div className="texte-rs hidden sm:inline">
                         <p>{translatedText.socials}</p>
                     </div>
 
-                    <div className="logo-linkedin w-[20px] h-[21px]">
+                    <div className="logo-linkedin md:w-[20px] md:h-[21px] w-[40px] h-[40px]">
                         <Link href="https://www.linkedin.com/in/christophe-nehlig/" target="_blank" aria-label={translatedText.screenReader.socials}>
                             <FontAwesomeIcon icon={faLinkedin} className="logo w-full h-full"/>
                         </Link>

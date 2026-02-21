@@ -44,7 +44,7 @@ export default function LayoutClient({
   return (
     <div className={layoutStyle.content}>
       <div
-        className={`frame p-[40px] bg-[theme(colors.hex-black)] h-[100%] relative z-1`}
+        className={`${layoutStyle.frame} p-0 md:p-[40px] bg-[theme(colors.hex-black)] h-[100%] relative z-1`}
       >
         {/* Sidebar */}
         <aside
@@ -86,23 +86,26 @@ export default function LayoutClient({
               </header>
             </LanguageProvider>
 
-            <main className="w-full h-full overflow-hidden">{children}</main>
+            <main className="overflow-hidden">{children}</main>
 
             <Footer />
           </div>
         </div>
 
-        {/* Bouton Logo On/Off */}
-        <LogoOnOff
-          isTurnedOff={isTurnedOff}
-          toggle={() => setIsTurnedOff((prev) => !prev)}
-          screenReadMsgOn={translatedText.screenReader.turnOn}
-          screenReadMsgOff={translatedText.screenReader.turnOff}
-        />
+        <div className="hidden md:inline">
+          <LogoOnOff
+            isTurnedOff={isTurnedOff}
+            toggle={() => setIsTurnedOff((prev) => !prev)}
+            screenReadMsgOn={translatedText.screenReader.turnOn}
+            screenReadMsgOff={translatedText.screenReader.turnOff}
+          />
+        </div>
       </div>
 
       {/* Overframe permet de faire en sorte que la sidebar passe à l'intérieur de l'écran et non par dessus le cadre */}
-      <div className="overframe w-[40px] h-[100%] fixed top-0 left-0 z-50 bg-[theme(colors.hex-black)]"></div>
+      <div
+        className={`${layoutStyle.overframe} hidden md:block w-[40px] h-[100%] fixed top-0 left-0 z-50 bg-[theme(colors.hex-black)]`}
+      ></div>
     </div>
   );
 }

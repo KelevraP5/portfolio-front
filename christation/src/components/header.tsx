@@ -19,24 +19,30 @@ export function Header({ isSidebarOpen, setIsSidebarOpen }: Readonly<HeaderProps
   const pathname = usePathname();
   const isHome = pathname === '/' || pathname === "/en" || pathname === "/en/";
 
+  const isEN = pathname.startsWith('/en');
+
   const translatedText = useTranslation(tradText);
 
   return (
-    <div className={`text-font-24px h-[100px] py-[16px] px-[28px]'}`}>
-      <div className="h-[100%] flex justify-between items-center px-[28px]">
+    <div className="text-font-24px h-[100px] py-[16px]">
+      <div className="h-[100%] flex justify-between items-center">
         <div className="left-side flex gap-[32px]">
           <button type="button" className="flex gap-[8px] cursor-pointer" onClick={() => setIsSidebarOpen(!isSidebarOpen)} aria-label={translatedText.screenReader.sidebarBtn}>
 
-            <Image src={iconeTrophee} width={60} height={60} alt={translatedText.alt.trophy}/>
+            <Image src={iconeTrophee} width={60} height={60} alt={translatedText.alt.trophy} loading="eager"/>
 
-            <div className="trophees-txt content-center cursor-pointer">
+            <div className="hidden sm:inline content-center cursor-pointer">
               <span className="font-titre text-font-24px">{translatedText.trophies}</span>
             </div>
           </button>
 
           {isHome === false ? (
             <div className="menu-btn content-center cursor-pointer">
-              <Link href={'/'} className="font-titre text-font-24px" aria-label={translatedText.screenReader.mainPage}>{translatedText.backHome}</Link>
+              {(isEN ?
+                <Link href={'/en'} className="font-titre text-font-24px" aria-label={translatedText.screenReader.mainPage}>{translatedText.backHome}</Link>
+              :
+                <Link href={'/'} className="font-titre text-font-24px" aria-label={translatedText.screenReader.mainPage}>{translatedText.backHome}</Link>
+              )}
             </div>
           ) : null}
         </div>

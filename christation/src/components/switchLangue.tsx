@@ -29,9 +29,9 @@ export function SwitchLangue({ screenReadMsgSwitch } : Readonly<SwitchLangueProp
   return (
     <button onClick={switchLang} aria-label={screenReadMsgSwitch} className="cursor-pointer">
       {isEN ? (
-        <Image src={iconeENG} width={60} height={60} alt="English" />
+        <Image src={iconeENG} width={60} height={60} alt="English" loading="eager"/>
       ) : (
-        <Image src={iconeFR} width={60} height={60} alt="Français" />
+        <Image src={iconeFR} width={60} height={60} alt="Français" loading="eager"/>
       )}
     </button>
   );
