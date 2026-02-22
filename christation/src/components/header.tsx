@@ -10,12 +10,17 @@ import iconeTrophee from "assets/iconeTrophee.svg";
 import { tradText } from "../traductions/tradText";
 import { useTranslation } from "../traductions/tradFunction";
 
+import { routes } from "@/src/routes/routes";
+
 interface HeaderProps {
   isSidebarOpen: boolean;
   setIsSidebarOpen: (isOpen: boolean) => void;
 }
 
 export function Header({ isSidebarOpen, setIsSidebarOpen }: Readonly<HeaderProps>) {
+  const routeFR = routes.fr;
+  const routeEN = routes.en;
+
   const pathname = usePathname();
   const isHome = pathname === '/' || pathname === "/en" || pathname === "/en/";
 
@@ -24,7 +29,7 @@ export function Header({ isSidebarOpen, setIsSidebarOpen }: Readonly<HeaderProps
   const translatedText = useTranslation(tradText);
 
   return (
-    <div className="text-font-24px h-[100px] py-[16px]">
+    <div className="text-font-24px w-full h-[100px] px-[28px] py-[16px]">
       <div className="h-[100%] flex justify-between items-center">
         <div className="left-side flex gap-[32px]">
           <button type="button" className="flex gap-[8px] cursor-pointer" onClick={() => setIsSidebarOpen(!isSidebarOpen)} aria-label={translatedText.screenReader.sidebarBtn}>
@@ -32,16 +37,16 @@ export function Header({ isSidebarOpen, setIsSidebarOpen }: Readonly<HeaderProps
             <Image src={iconeTrophee} width={60} height={60} alt={translatedText.alt.trophy} loading="eager"/>
 
             <div className="hidden sm:inline content-center cursor-pointer">
-              <span className="font-titre text-font-24px">{translatedText.trophies}</span>
+              <span className="trophy-text font-titre text-font-24px">{translatedText.trophies}</span>
             </div>
           </button>
 
           {isHome === false ? (
             <div className="menu-btn content-center cursor-pointer">
               {(isEN ?
-                <Link href={'/en'} className="font-titre text-font-24px" aria-label={translatedText.screenReader.mainPage}>{translatedText.backHome}</Link>
+                <Link href={routeEN.home} className="back-home font-titre text-font-24px" aria-label={translatedText.screenReader.mainPage}>{translatedText.backHome}</Link>
               :
-                <Link href={'/'} className="font-titre text-font-24px" aria-label={translatedText.screenReader.mainPage}>{translatedText.backHome}</Link>
+                <Link href={routeFR.accueil} className="back-home font-titre text-font-24px" aria-label={translatedText.screenReader.mainPage}>{translatedText.backHome}</Link>
               )}
             </div>
           ) : null}

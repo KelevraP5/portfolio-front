@@ -2,6 +2,8 @@
 import { getHomePage } from "graphqlServices/pageServices";
 import HomeClientEN from "./homeClientEN";
 
+import { routes } from "@/src/routes/routes";
+
 import { Metadata } from "next";
 
 export default async function HomeEN() {
@@ -21,7 +23,7 @@ export default async function HomeEN() {
 
         <nav>
           <ul>
-            <li><a href="/en/about">About: Background and skills</a></li>
+            <li><a href={routes.en.about}>About: Background and skills</a></li>
             <li><a href="/en/projects">Web design and web development projects</a></li>
             <li><a href="/en/contact">Contact: Send me a message</a></li>
           </ul>

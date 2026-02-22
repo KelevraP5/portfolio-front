@@ -1,7 +1,7 @@
 export const tradText = {
     fr: {
-        trophies: "Trophées",
-        backHome: "Menu",
+        trophies: "trophées",
+        backHome: "menu",
         legal: "mentions légales",
         socials: "retrouvez moi sur",
 
@@ -12,7 +12,7 @@ export const tradText = {
             switchLanguage: "changer de français à anglais",
             turnOn: "allumer l'écran",
             turnOff: "éteindre l'écran",
-            send: "Envoyer",
+            send: "envoyer",
             socials: "Retrouvez moi sur Linkedin",
             legal: "mentions légales",
         },
@@ -23,8 +23,8 @@ export const tradText = {
     },
 
     en: {
-        trophies: "Trophies",
-        backHome: "Menu",
+        trophies: "trophies",
+        backHome: "menu",
         legal: "legal notices",
         socials: "find me on",
 
@@ -35,8 +35,8 @@ export const tradText = {
             switchLanguage: "switch from English to French",
             turnOn: "turn the screen on",
             turnOff: "turn the screen off",
-            send: "Sent",
-            socials: "Find me on Linked'in",
+            send: "sent",
+            socials: "find me on Linked'in",
             legal: "legal notices"
         },
 

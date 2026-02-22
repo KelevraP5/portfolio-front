@@ -1,33 +1,24 @@
 "use client";
 
-import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
+import Image from "next/image";
 import iconeFR from "assets/iconeFR.svg";
 import iconeENG from "assets/iconeENG.svg";
+
+import switchLangueRoutes from "../routes/switchLangueRouteFunction";
 
 type SwitchLangueProps = {
   screenReadMsgSwitch: string;
 }
 
 export function SwitchLangue({ screenReadMsgSwitch } : Readonly<SwitchLangueProps>) {
-  const router = useRouter();
-  const pathname = usePathname();
+  const isEN = usePathname().startsWith("/en");
 
-  const isEN = pathname.startsWith("/en");
-
-  function switchLang() {
-    if (isEN) {
-      router.push("/");
-      router.refresh();
-    } else {
-      router.push("/en");
-      router.refresh();
-    }
-  }
+  const switchLangRoute = switchLangueRoutes();
 
   return (
-    <button onClick={switchLang} aria-label={screenReadMsgSwitch} className="cursor-pointer">
+    <button onClick={switchLangRoute} aria-label={screenReadMsgSwitch} className="cursor-pointer">
       {isEN ? (
         <Image src={iconeENG} width={60} height={60} alt="English" loading="eager"/>
       ) : (

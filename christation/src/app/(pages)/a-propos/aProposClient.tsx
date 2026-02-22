@@ -9,8 +9,12 @@ import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
 import { VerticalImgFrame, VerticalTxtFrame } from "components/contentFrame";
 import AProposStyle from "styles/modules/pages/aPropos.module.css";
+import { BackgroundManager } from "@/src/components/bgManager";
 
 export default function AProposClient({ page }: Readonly<{ page: AboutPageData }>) {
+  const mainBgSrc = page.imgBaseAPropos.node.sourceUrl;
+  const mainBgAlt = page.imgBaseAPropos.node.altText;
+  
   const [flipped, setFlipped] = useState<number | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null); // Référence pour le scroll
 
@@ -37,6 +41,7 @@ export default function AProposClient({ page }: Readonly<{ page: AboutPageData }
 
   return (
     <div className={AProposStyle.listInfosContainer}>
+      <BackgroundManager src={mainBgSrc} alt={mainBgAlt ?? ""} />
       {/* Flèche Gauche */}
       <button className={`${AProposStyle.navArrow} ${AProposStyle.left} lg:hidden inline`} onClick={() => scroll("left")}>
         <FontAwesomeIcon icon={faCaretLeft} />

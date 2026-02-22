@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, useMemo } from "react";
+import { createContext, useContext, useEffect, useState, useMemo, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "./LanguageContext";
 
@@ -29,14 +29,14 @@ export const BackgroundProvider = ({ children }: { children: React.ReactNode }) 
   const [defaultBackground, setDefaultBackground] = useState<BgImage | null>(null);
 
   const pathname = usePathname();
+  const lastPathname = useRef(pathname);
 
-  /* ✅ Reset si on quitte "/" */
   useEffect(() => {
-    if (pathname !== "/" && pathname !== "/en") {
+    if (lastPathname.current !== pathname){
       setBackgroundImage(null);
-      setDefaultBackground(null);
-    }
-  }, [pathname]);  
+      lastPathname.current = pathname; 
+    } 
+  });
 
   /* ✅ useMemo pour éviter warning React */
   const contextValue = useMemo(() => ({

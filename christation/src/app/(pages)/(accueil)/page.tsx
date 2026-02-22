@@ -4,6 +4,8 @@ import HomeClient from "./homeClient";
 
 import { Metadata } from "next";
 
+import { routes } from "@/src/routes/routes";
+
 export default async function Home() {
   const home = await getHomePage("FR");
 
@@ -21,7 +23,7 @@ export default async function Home() {
 
         <nav>
           <ul>
-            <li><a href="/a-propos">À propos : Parcours et compétences</a></li>
+            <li><a href={routes.fr.aPropos}>À propos : Parcours et compétences</a></li>
             <li><a href="/realisations">Réalisations webdesign et développement web</a></li>
             <li><a href="/contact">Contact : Envoyez moi un message</a></li>
           </ul>
