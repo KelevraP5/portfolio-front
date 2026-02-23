@@ -13,7 +13,7 @@ export default async function Home() {
     <>
       {/* CONTENU SEO SERVEUR */}
       <section className="sr-only absolute w-[1px] h-[1px] p-0 m-[-1px] overflow-hidden">
-        <h1>Portfolio de Christophe Nehlig, Webdesigner et Développeur Front-end</h1>
+        <h1>Bienvenue sur Christation, le portfolio de Christophe Nehlig, Webdesigner et Développeur Front-end</h1>
 
         <p>
           Je suis webdesigner spécialisé en interfaces modernes,

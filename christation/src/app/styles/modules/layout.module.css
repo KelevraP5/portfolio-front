@@ -75,3 +75,13 @@
 .noEvents {
   pointer-events: none;
 }
+
+@media  screen and (max-width: 800px) {
+  .frame{
+    padding: 0;
+  }
+
+  .logoOnOff, .overframe{
+    visibility: hidden;
+  }
+}

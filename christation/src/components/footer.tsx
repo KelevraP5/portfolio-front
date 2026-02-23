@@ -19,7 +19,7 @@ export default function Footer(){
 
                 <div className="line"></div>
 
-                <div className="flex gap-[0.5rem] px-[0.5rem]">
+                <div className="flex items-center gap-[0.5rem] px-[0.5rem]">
                     <div className="texte-rs hidden sm:inline">
                         <p>{translatedText.socials}</p>
                     </div>

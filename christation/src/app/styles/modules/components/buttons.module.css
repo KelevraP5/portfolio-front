@@ -26,6 +26,12 @@
     }
 }
 
+@media screen and (max-width: 800px){
+    .menuButton{
+        border-image: url("../../../../../public/assets/cadreMenuHover.svg") 25 fill / 100px;
+    }
+}
+
 .sendButton{
     display: inline-block;
     width: 100%;

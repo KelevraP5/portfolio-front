@@ -6,6 +6,7 @@ import { HomeMenu } from "@/src/components/buttons";
 
 import { useBackground } from "@/src/contexts/HomeBgContext";
 import { BackgroundManager } from "@/src/components/bgManager";
+import { useBackgroundObserver } from "@/src/hooks/backgroundObserver";
 
 import { useEffect, useMemo } from "react";
 
@@ -32,8 +33,9 @@ export default function HomeClient({ page }: Readonly<{ page: HomePageData }>) {
     setBackgroundImage(baseBg);
   }, [baseBg]);
 
-  const menus = [
+  const menus = useMemo(() => [
     {
+      id: "m1",
       menuName: page.menu1,
       href: routes.fr.aPropos,
       bgImg: page.menu1Img.node.sourceUrl,
@@ -41,29 +43,34 @@ export default function HomeClient({ page }: Readonly<{ page: HomePageData }>) {
       description: "aller sur la page à propos de moi",
     },
     {
+      id: "m2",
       menuName: page.menu2,
-      href: "/realisations",
+      href: routes.fr.realisations,
       bgImg: page.menu2Img.node.sourceUrl,
       bgImgAlt: page.menu2Img.node.altText ?? "",
       description: "aller sur la page mes réalisations",
     },
     {
+      id: "m3",
       menuName: page.menu3,
-      href: "/contact",
+      href: routes.fr.contact,
       bgImg: page.menu3Img.node.sourceUrl,
       bgImgAlt: page.menu3Img.node.altText ?? "",
       description: "aller sur la page contact",
     },
-  ];
+  ], [page]);
+
+  const scrollContainerRef = useBackgroundObserver(menus, setBackgroundImage);
 
   return (
     <div className="wrap">
       <div className={`${style.menuContainer}`}>
         <BackgroundManager src={ImgSource} alt={altImg ?? ""} />
-        <ul>
+        <ul ref={scrollContainerRef as React.RefObject<HTMLUListElement>}>
           {menus.map((menu) => (
             <li
-              key={menu.href}
+              key={menu.id}
+              data-menu-id={menu.id}
               onMouseEnter={() =>
                 setBackgroundImage({ src: menu.bgImg, alt: menu.bgImgAlt })
               }

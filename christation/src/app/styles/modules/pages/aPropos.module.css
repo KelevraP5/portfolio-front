@@ -26,10 +26,10 @@
   text-align: center;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
-}
 
-.flipped {
-  transform: rotateY(180deg);
+  &.flipped {
+    transform: rotateY(180deg);
+  }
 }
 
 .cardFront,
@@ -83,8 +83,8 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: theme('colors.hex-black / 50%');
-    color: theme('colors.hex-white');
+    background: theme("colors.hex-black / 50%");
+    color: theme("colors.hex-white");
     border: none;
     font-size: 3rem;
     width: 60px;
@@ -107,8 +107,10 @@
   }
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 500px) {
   .navArrow {
+    top: 90%;
+    transform: translateY(0);
     height: 60px;
 
     &.left {

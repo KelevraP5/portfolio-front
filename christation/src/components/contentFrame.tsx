@@ -25,6 +25,7 @@ export function VerticalImgFrame({
           width={500}
           height={500}
           priority
+          fetchPriority="high"
         />
       </div>
 
@@ -50,14 +51,18 @@ export function VerticalTxtFrame({ content }: Readonly<VerticalTxtFrameProps>) {
   return (
     <div className={style.frameContainer}>
       <div className={style.frameAsset}>
-        <Image src={vertCardFrame} alt="Cadre" width={500} height={500} priority />
+        <Image
+          src={vertCardFrame}
+          alt="Cadre"
+          width={500}
+          height={500}
+          priority
+        />
       </div>
 
       <div className={style.txtWrapper}>
-        <div 
-          className={style.scrollableArea}
-        >
-          <p>{content}</p>
+        <div className={style.scrollableArea}>
+          <p >{content}</p>
         </div>
       </div>
     </div>

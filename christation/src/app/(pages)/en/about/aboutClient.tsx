@@ -11,17 +11,17 @@ import { VerticalImgFrame, VerticalTxtFrame } from "components/contentFrame";
 import AProposStyle from "styles/modules/pages/aPropos.module.css";
 import { BackgroundManager } from "@/src/components/bgManager";
 
-export default function AProposClient({ page }: Readonly<{ page: AboutPageData }>) {
-  const mainBgSrc = page.imgBaseAPropos.node.sourceUrl;
-  const mainBgAlt = page.imgBaseAPropos.node.altText;
+export default function AboutClient({ pageEN }: Readonly<{ pageEN: AboutPageData }>) {
+  const mainBgSrc = pageEN.imgBaseAPropos.node.sourceUrl;
+  const mainBgAlt = pageEN.imgBaseAPropos.node.altText;
   
   const [flipped, setFlipped] = useState<number | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null); // Référence pour le scroll
 
   const infosMoi = [
-    { id: 1, contenu: page.infos1, imgFront: page.infos1Img.node.sourceUrl, imgAlt: page.infos1Img.node.altText ?? "" },
-    { id: 2, contenu: page.infos2, imgFront: page.infos2Img.node.sourceUrl, imgAlt: page.infos2Img.node.altText ?? "" },
-    { id: 3, contenu: page.infos3, imgFront: page.infos3Img.node.sourceUrl, imgAlt: page.infos3Img.node.altText ?? "" },
+    { id: 1, contenu: pageEN.infos1, imgFront: pageEN.infos1Img.node.sourceUrl, imgAlt: pageEN.infos1Img.node.altText ?? "" },
+    { id: 2, contenu: pageEN.infos2, imgFront: pageEN.infos2Img.node.sourceUrl, imgAlt: pageEN.infos2Img.node.altText ?? "" },
+    { id: 3, contenu: pageEN.infos3, imgFront: pageEN.infos3Img.node.sourceUrl, imgAlt: pageEN.infos3Img.node.altText ?? "" },
   ];
 
   const handleFlip = (id: number) => {
@@ -60,7 +60,7 @@ export default function AProposClient({ page }: Readonly<{ page: AboutPageData }
                 <VerticalImgFrame contentImgUrl={infoMoi.imgFront} contentAltText={infoMoi.imgAlt} />
               </div>
               <div className={AProposStyle.cardBack}>
-                <VerticalTxtFrame content={infoMoi.contenu}/>
+                <VerticalTxtFrame content={infoMoi.contenu} />
               </div>
             </div>
           </button>
