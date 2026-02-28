@@ -2,15 +2,15 @@ import { getContactPage } from "@/src/lib/services/pageServices";
 
 import { Metadata } from "next";
 
-import ContactClient from "./contactClient";
+import ContactClientEN from "./contactClientEN";
 
 export default async function Contact() {
-  const contact = await getContactPage("FR");
+  const contactEN = await getContactPage("EN");
 
   return (
     <>
       <section className="sr-only absolute w-[1px] h-[1px] p-0 m-[-1px] overflow-hidden">
-        <h1>Voici la page pour me contacter</h1>
+        <h1>Here is the page to contact me</h1>
 
         <p>
          
@@ -19,7 +19,7 @@ export default async function Contact() {
         
       </section>
 
-      <ContactClient page={contact}/>
+      <ContactClientEN pageEN={contactEN}/>
     </>
   );
 }

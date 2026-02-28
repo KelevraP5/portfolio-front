@@ -19,17 +19,23 @@ export default function switchLangueRoutes() {
     if (isEN) {
       if (pathRoute(routeEN.home)) {
         router.push(routeFR.accueil);
-
       } else if (pathRoute(routeEN.about)) {
         router.push(routeFR.aPropos);
+      } else if (pathRoute(routeEN.projects)) {
+        router.push(routeFR.realisations);
+      } else if (pathRoute(routeEN.contact)) {
+        router.push(routeFR.contact);
       }
 
     } else if (!isEN) {
       if (pathRoute(routeFR.accueil)) {
         router.push(routeEN.home);
-        
       } else if (pathRoute(routeFR.aPropos)) {
         router.push(routeEN.about);
+      } else if (pathRoute(routeFR.realisations)) {
+        router.push(routeEN.projects);
+      } else if (pathRoute(routeFR.contact)) {
+        router.push(routeEN.contact);
       }
     }
   };

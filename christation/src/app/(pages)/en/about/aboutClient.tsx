@@ -40,37 +40,50 @@ export default function AboutClient({ pageEN }: Readonly<{ pageEN: AboutPageData
   };
 
   return (
-    <div className={AProposStyle.listInfosContainer}>
-      <BackgroundManager src={mainBgSrc} alt={mainBgAlt ?? ""} />
-      {/* Flèche Gauche */}
-      <button className={`${AProposStyle.navArrow} ${AProposStyle.left} lg:hidden inline`} onClick={() => scroll("left")}>
-        <FontAwesomeIcon icon={faCaretLeft} />
-      </button>
+    <div className="wrap">
+      <div className={AProposStyle.listInfosContainer}>
+        <BackgroundManager src={mainBgSrc} alt={mainBgAlt ?? ""} />
+        {/* Flèche Gauche */}
+        <button
+          className={`${AProposStyle.navArrow} ${AProposStyle.left} inline`}
+          onClick={() => scroll("left")}
+        >
+          <FontAwesomeIcon icon={faCaretLeft} />
+        </button>
 
-      <div className={AProposStyle.listInfosWrapper} ref={scrollRef}>
-        {infosMoi.map((infoMoi) => (
-          <button
-            key={infoMoi.id}
-            type="button"
-            className={AProposStyle.cadreInfos}
-            onClick={() => handleFlip(infoMoi.id)}
-          >
-            <div className={`${AProposStyle.cardInner} ${flipped === infoMoi.id ? AProposStyle.flipped : ""}`}>
-              <div className={AProposStyle.cardFront}>
-                <VerticalImgFrame contentImgUrl={infoMoi.imgFront} contentAltText={infoMoi.imgAlt} />
+        <div className={AProposStyle.listInfosWrapper} ref={scrollRef}>
+          {infosMoi.map((infoMoi) => (
+            <button
+              key={infoMoi.id}
+              type="button"
+              className={AProposStyle.cadreInfos}
+              onClick={() => handleFlip(infoMoi.id)}
+            >
+              <div
+                className={`${AProposStyle.cardInner} ${flipped === infoMoi.id ? AProposStyle.flipped : ""}`}
+              >
+                <div className={AProposStyle.cardFront}>
+                  <VerticalImgFrame
+                    contentImgUrl={infoMoi.imgFront}
+                    contentAltText={infoMoi.imgAlt}
+                  />
+                </div>
+                <div className={AProposStyle.cardBack}>
+                  <VerticalTxtFrame content={infoMoi.contenu} />
+                </div>
               </div>
-              <div className={AProposStyle.cardBack}>
-                <VerticalTxtFrame content={infoMoi.contenu} />
-              </div>
-            </div>
-          </button>
-        ))}
+            </button>
+          ))}
+        </div>
+
+        {/* Flèche Droite */}
+        <button
+          className={`${AProposStyle.navArrow} ${AProposStyle.right} inline`}
+          onClick={() => scroll("right")}
+        >
+          <FontAwesomeIcon icon={faCaretRight} />
+        </button>
       </div>
-
-      {/* Flèche Droite */}
-      <button className={`${AProposStyle.navArrow} ${AProposStyle.right} lg:hidden inline`} onClick={() => scroll("right")}>
-        <FontAwesomeIcon icon={faCaretRight} />
-      </button>
     </div>
   );
 }

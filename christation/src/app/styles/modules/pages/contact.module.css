@@ -1,0 +1,139 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact {
+  width: 100%;
+  height: 100%;
+}
+
+.cadre {
+  position: relative;
+  width: 350px;
+  height: 95%;
+  margin: 0 auto;
+}
+
+.cadreFond {
+  position: absolute;
+  inset: 0;
+
+  background-color: rgba(theme("colors.rgb-black"), 0.3);
+  backdrop-filter: blur(10px);
+
+  mask-image: url("../../../../../public/assets/vertFullFrame.svg");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  z-index: 1;
+}
+
+.maskOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image: url("../../../../../public/assets/vertEmptyFrame.svg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.formulaire {
+  position: relative;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  color: theme("colors.hex-white");
+  z-index: 5;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 85%;
+  }
+
+  .inputGroup,
+  .txtAreaGroup {
+    position: relative;
+    width: 100%;
+
+    label {
+      position: absolute;
+      top: 0;
+      left: 10px;
+      transition: top 0.3s ease;
+
+      &:hover {
+        cursor: text;
+      }
+
+      & span {
+        color: theme("colors.hex-red");
+      }
+    }
+
+    input {
+      width: 100%;
+      border: 2px solid transparent;
+      outline: none;
+      border-bottom: 2px solid theme("colors.hex-white");
+      background: transparent;
+      padding: 0.3rem 0.5rem;
+      caret-color: theme("colors.hex-white");
+      color: theme("colors.hex-white");
+
+      &:focus {
+        border: 2px solid theme("colors.hex-white");
+        border-radius: 8px;
+      }
+
+      &:focus + label,
+      &:not(:placeholder-shown) + label {
+        top: -12px;
+        background-color: rgba(theme("colors.rgb-black"), 0.1);
+        backdrop-filter: blur(10px);
+      }
+
+      &:user-invalid {
+        border: 2px solid red;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  textarea {
+    background: transparent;
+    border: 2px solid theme("colors.hex-white");
+    outline: none;
+    border-radius: 8px;
+    resize: none;
+    width: 100%;
+    height: 10rem;
+    padding: 0.3rem;
+    caret-color: theme("colors.hex-white");
+    color: theme("colors.hex-white");
+    transition: all 0.3s ease;
+
+    &:focus + label,
+    &:not(:placeholder-shown) + label {
+      top: -12px;
+      background-color: rgba(theme("colors.rgb-black"), 0.1);
+      backdrop-filter: blur(10px);
+    }
+  }
+}
+
+.error {
+  color: theme("colors.hex-red");
+}
+
+.btn {
+  margin: 64px auto 0;
+  width: 90%;
+  text-align: center;
+}

@@ -30,3 +30,7 @@ export type AboutPageData = {
     infos3 : string;
     infos3Img : MediaNode;
 };
+
+export type ContactPageData = {
+    imgBaseContact: MediaNode;
+}

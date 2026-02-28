@@ -1,14 +1,16 @@
 /* Cadre avec image */
 .frameContainer {
   position: relative;
-  width: fit-content; 
-  height: auto;
-  display: inline;
+  width: 100%; 
+  height: 100%;
+  display: block;
 }
 
 .frameAsset {
-  position: relative;
-  width: fit-content;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 5;
 }
 
@@ -32,10 +34,10 @@
 .txtWrapper {
   position: absolute;
   /* Zone de sécurité à l'intérieur de ton cadre concave */
-  top: 10%; 
-  left: 21%;
-  right: 20%;
-  bottom: 10%;
+  top: 55px; 
+  left: 11px;
+  right: 11px;
+  bottom: 60px;
   
   display: flex;
   align-items: center;

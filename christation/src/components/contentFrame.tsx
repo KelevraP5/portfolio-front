@@ -22,8 +22,7 @@ export function VerticalImgFrame({
         <Image
           src={vertCardFrame}
           alt="Cadre avec des bords concaves"
-          width={500}
-          height={500}
+          fill
           priority
           fetchPriority="high"
         />
@@ -36,6 +35,8 @@ export function VerticalImgFrame({
           alt={contentAltText}
           fill
           className="object-cover"
+          priority
+          fetchPriority="high"
           unoptimized
         />
       </div>
@@ -54,9 +55,9 @@ export function VerticalTxtFrame({ content }: Readonly<VerticalTxtFrameProps>) {
         <Image
           src={vertCardFrame}
           alt="Cadre"
-          width={500}
-          height={500}
+          fill
           priority
+          fetchPriority="high"
         />
       </div>
 

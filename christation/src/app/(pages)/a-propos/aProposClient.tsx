@@ -11,17 +11,34 @@ import { VerticalImgFrame, VerticalTxtFrame } from "components/contentFrame";
 import AProposStyle from "styles/modules/pages/aPropos.module.css";
 import { BackgroundManager } from "@/src/components/bgManager";
 
-export default function AProposClient({ page }: Readonly<{ page: AboutPageData }>) {
+export default function AProposClient({
+  page,
+}: Readonly<{ page: AboutPageData }>) {
   const mainBgSrc = page.imgBaseAPropos.node.sourceUrl;
   const mainBgAlt = page.imgBaseAPropos.node.altText;
-  
+
   const [flipped, setFlipped] = useState<number | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null); // Référence pour le scroll
 
   const infosMoi = [
-    { id: 1, contenu: page.infos1, imgFront: page.infos1Img.node.sourceUrl, imgAlt: page.infos1Img.node.altText ?? "" },
-    { id: 2, contenu: page.infos2, imgFront: page.infos2Img.node.sourceUrl, imgAlt: page.infos2Img.node.altText ?? "" },
-    { id: 3, contenu: page.infos3, imgFront: page.infos3Img.node.sourceUrl, imgAlt: page.infos3Img.node.altText ?? "" },
+    {
+      id: 1,
+      contenu: page.infos1,
+      imgFront: page.infos1Img.node.sourceUrl,
+      imgAlt: page.infos1Img.node.altText ?? "",
+    },
+    {
+      id: 2,
+      contenu: page.infos2,
+      imgFront: page.infos2Img.node.sourceUrl,
+      imgAlt: page.infos2Img.node.altText ?? "",
+    },
+    {
+      id: 3,
+      contenu: page.infos3,
+      imgFront: page.infos3Img.node.sourceUrl,
+      imgAlt: page.infos3Img.node.altText ?? "",
+    },
   ];
 
   const handleFlip = (id: number) => {
@@ -40,37 +57,50 @@ export default function AProposClient({ page }: Readonly<{ page: AboutPageData }
   };
 
   return (
-    <div className={AProposStyle.listInfosContainer}>
-      <BackgroundManager src={mainBgSrc} alt={mainBgAlt ?? ""} />
-      {/* Flèche Gauche */}
-      <button className={`${AProposStyle.navArrow} ${AProposStyle.left} lg:hidden inline`} onClick={() => scroll("left")}>
-        <FontAwesomeIcon icon={faCaretLeft} />
-      </button>
+    <div className="wrap">
+      <div className={AProposStyle.listInfosContainer}>
+        <BackgroundManager src={mainBgSrc} alt={mainBgAlt ?? ""} />
+        {/* Flèche Gauche */}
+        <button
+          className={`${AProposStyle.navArrow} ${AProposStyle.left} inline`}
+          onClick={() => scroll("left")}
+        >
+          <FontAwesomeIcon icon={faCaretLeft} />
+        </button>
 
-      <div className={AProposStyle.listInfosWrapper} ref={scrollRef}>
-        {infosMoi.map((infoMoi) => (
-          <button
-            key={infoMoi.id}
-            type="button"
-            className={AProposStyle.cadreInfos}
-            onClick={() => handleFlip(infoMoi.id)}
-          >
-            <div className={`${AProposStyle.cardInner} ${flipped === infoMoi.id ? AProposStyle.flipped : ""}`}>
-              <div className={AProposStyle.cardFront}>
-                <VerticalImgFrame contentImgUrl={infoMoi.imgFront} contentAltText={infoMoi.imgAlt} />
+        <div className={AProposStyle.listInfosWrapper} ref={scrollRef}>
+          {infosMoi.map((infoMoi) => (
+            <button
+              key={infoMoi.id}
+              type="button"
+              className={AProposStyle.cadreInfos}
+              onClick={() => handleFlip(infoMoi.id)}
+            >
+              <div
+                className={`${AProposStyle.cardInner} ${flipped === infoMoi.id ? AProposStyle.flipped : ""}`}
+              >
+                <div className={AProposStyle.cardFront}>
+                  <VerticalImgFrame
+                    contentImgUrl={infoMoi.imgFront}
+                    contentAltText={infoMoi.imgAlt}
+                  />
+                </div>
+                <div className={AProposStyle.cardBack}>
+                  <VerticalTxtFrame content={infoMoi.contenu} />
+                </div>
               </div>
-              <div className={AProposStyle.cardBack}>
-                <VerticalTxtFrame content={infoMoi.contenu}/>
-              </div>
-            </div>
-          </button>
-        ))}
+            </button>
+          ))}
+        </div>
+
+        {/* Flèche Droite */}
+        <button
+          className={`${AProposStyle.navArrow} ${AProposStyle.right} inline`}
+          onClick={() => scroll("right")}
+        >
+          <FontAwesomeIcon icon={faCaretRight} />
+        </button>
       </div>
-
-      {/* Flèche Droite */}
-      <button className={`${AProposStyle.navArrow} ${AProposStyle.right} lg:hidden inline`} onClick={() => scroll("right")}>
-        <FontAwesomeIcon icon={faCaretRight} />
-      </button>
     </div>
   );
 }

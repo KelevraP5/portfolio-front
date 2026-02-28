@@ -33,8 +33,7 @@
 }
 
 .sendButton{
-    display: inline-block;
-    width: 100%;
+    display: inline-block;    
 
     background-color: transparent;
     font-family: theme("fontFamily.titre");
@@ -42,15 +41,14 @@
     color: theme('colors.hex-white');
 
     border: 1rem solid theme("colors.hex-secondaryColor");
-    border-image: url("../../../../../public/assets/cadreMenuHover.svg") 25 fill / 100px;
+    border-image: url("../../../../../public/assets/button.svg") 25 fill / 100px;
     text-align: center;
-    padding: 1rem;
 
     transition: border 0.3s ease-in-out;
 
     &:hover{
         cursor: pointer;
         border: 1rem solid theme("colors.hex-white");
-        border-image: url("../../../../../public/assets/cadreMenu.svg") 25 fill / 100px;
+        border-image: url("../../../../../public/assets/buttonHover.svg") 25 fill / 100px;
     }
 }

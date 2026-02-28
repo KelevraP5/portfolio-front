@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, useMemo, useRef } from "react";
+import { createContext, useContext, useEffect, useState, useMemo, useRef, useLayoutEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "./LanguageContext";
 
@@ -31,7 +31,7 @@ export const BackgroundProvider = ({ children }: { children: React.ReactNode }) 
   const pathname = usePathname();
   const lastPathname = useRef(pathname);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (lastPathname.current !== pathname){
       setBackgroundImage(null);
       lastPathname.current = pathname; 
