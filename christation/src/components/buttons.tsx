@@ -20,11 +20,12 @@ export function HomeMenu({ menuTxt, href, screenReadMsg }: Readonly<HomeMenuProp
 interface SendButtonProps {
   sendTxt : string;
   screenReadMsg: string;
+  state: any;
 }
 
 // Bouton d'envoi de formulaire
-export function SendButton({ sendTxt, screenReadMsg }: Readonly<SendButtonProps>){
+export function SendButton({ sendTxt, screenReadMsg, state }: Readonly<SendButtonProps>){
   return(
-    <button type="button" className={homeMenuStyle.sendButton} aria-label={screenReadMsg}>{sendTxt}</button>
+    <button type="submit" disabled={state} className={homeMenuStyle.sendButton} aria-label={screenReadMsg}>{sendTxt}</button>
   );
 }

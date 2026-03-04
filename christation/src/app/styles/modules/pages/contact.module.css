@@ -12,7 +12,7 @@
 .cadre {
   position: relative;
   width: 350px;
-  height: 95%;
+  height: 98%;
   margin: 0 auto;
 }
 
@@ -42,13 +42,26 @@
 .formulaire {
   position: relative;
   margin: 3rem auto;
+  padding-top: 0.5rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+
   width: 90%;
   height: 90%;
+
   color: theme("colors.hex-white");
   z-index: 5;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
 
   form {
     display: flex;
@@ -64,7 +77,7 @@
 
     label {
       position: absolute;
-      top: 0;
+      top: 5px;
       left: 10px;
       transition: top 0.3s ease;
 
@@ -83,7 +96,7 @@
       outline: none;
       border-bottom: 2px solid theme("colors.hex-white");
       background: transparent;
-      padding: 0.3rem 0.5rem;
+      padding: 0.5rem;
       caret-color: theme("colors.hex-white");
       color: theme("colors.hex-white");
 
@@ -95,7 +108,7 @@
       &:focus + label,
       &:not(:placeholder-shown) + label {
         top: -12px;
-        background-color: rgba(theme("colors.rgb-black"), 0.1);
+        background-color: rgba(theme("colors.rgb-black"), 0.3);
         backdrop-filter: blur(10px);
       }
 
@@ -133,7 +146,18 @@
 }
 
 .btn {
-  margin: 64px auto 0;
+  margin: 0 auto;
   width: 90%;
   text-align: center;
+}
+
+.alertSucess{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: fit-content;
+  background-color: theme("colors.hex-mainColor");
+  color: theme("colors.hex-white");
+
+  z-index: 100;
 }
