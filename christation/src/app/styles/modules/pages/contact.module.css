@@ -50,7 +50,7 @@
   justify-content: space-around;
 
   width: 90%;
-  height: 90%;
+  height: 85%;
 
   color: theme("colors.hex-white");
   z-index: 5;
@@ -61,7 +61,7 @@
   }
 
   scrollbar-width: none;
-  -ms-overflow-style: none; 
+  -ms-overflow-style: none;
 
   form {
     display: flex;
@@ -143,6 +143,7 @@
 
 .error {
   color: theme("colors.hex-red");
+  font-size: 0.9rem;
 }
 
 .btn {
@@ -151,13 +152,39 @@
   text-align: center;
 }
 
-.alertSucess{
+.alertSuccess {
   position: absolute;
   inset: 0;
+
   width: 100%;
   height: fit-content;
+  padding: 1rem;
+
   background-color: theme("colors.hex-mainColor");
+  border: 2px solid theme("colors.hex-secondaryColor");
   color: theme("colors.hex-white");
+  text-align: center;
 
   z-index: 100;
+
+  .exitCross {
+    position: absolute;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  .alertWrap{
+    width: 100%;
+    text-wrap: pretty;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .alertSuccess{
+    .alertWrap{
+      width: 90%;
+    }
+  }
 }
