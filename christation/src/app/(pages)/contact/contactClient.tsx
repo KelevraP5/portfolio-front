@@ -105,7 +105,7 @@ export default function ContactClient({
                   aria-required
                   placeholder=" "
                 />
-                <label htmlFor="email">Adresse e-mail <span>*</span></label>
+                <label htmlFor="email">Adresse e-mail<span>*</span></label>
                 {state?.errors?.email && (
                   <span className={`${contactStyle.error}`}>
                     {state.errors.email}

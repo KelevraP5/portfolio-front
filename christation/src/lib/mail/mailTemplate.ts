@@ -1,40 +1,87 @@
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT),
-  secure: process.env.SMTP_PORT === '465', // true pour 465, false pour 587
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASSWORD,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function sendContactEmail(data: {
+interface EmailContactPropsFR {
   prenom: string;
   nom: string;
   email: string;
   objet: string;
   message: string;
-}) {
+};
+
+export async function sendContactEmailFR(data: EmailContactPropsFR) {
+
   const { prenom, nom, email, objet, message } = data;
 
-  const mailOptions = {
-    from: `"${prenom} ${nom}" <${process.env.SMTP_USER}>`, // Expéditeur technique
-    to: process.env.CONTACT_EMAIL, // Ton mail qui reçoit
-    replyTo: email, // Permet de répondre directement au client
-    subject: `[Contact Site] ${objet}`,
-    html: `
-      <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-        <h2 style="color: #333;">Nouveau message de contact</h2>
-        <p><strong>De :</strong> ${prenom} ${nom} (${email})</p>
-        <p><strong>Objet :</strong> ${objet}</p>
-        <div style="margin-top: 20px; padding: 15px; background: #f9f9f9; border-radius: 5px;">
-          <p style="white-space: pre-wrap;">${message}</p>
+  try {
+    const { data: resData, error } = await resend.emails.send({
+      // ⚠️ IMPORTANT : Au début, utilise 'onboarding@resend.dev' comme expéditeur
+      from: 'Portfolio Contact <onboarding@resend.dev>',
+      to: [process.env.CONTACT_EMAIL as string],
+      replyTo: email, // Le mail du client pour pouvoir lui répondre
+      subject: `[Contact] ${objet}`,
+      html: `
+        <div style="font-family: sans-serif; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h2 style="color: #333;">Nouveau message de ${prenom} ${nom}</h2>
+          <p><strong>Email :</strong> ${email}</p>
+          <p><strong>Message :</strong></p>
+          <div style="background: #f4f4f4; padding: 15px; border-radius: 5px;">
+            ${message.replaceAll('\n', '<br>')}
+          </div>
         </div>
-      </div>
-    `,
-  };
+      `,
+    });
 
-  return transporter.sendMail(mailOptions);
+    if (error) {
+      throw new Error(error.message);
+    }
+
+    return resData;
+  } catch (e) {
+    console.error("Erreur Resend :", e);
+    throw e;
+  }
+}
+
+interface EmailContactPropsEN {
+  firstname: string;
+  lastname: string;
+  email: string;
+  object: string;
+  message: string;
+};
+
+export async function sendContactEmailEN(data: EmailContactPropsEN) {
+
+  const { firstname, lastname, email, object, message } = data;
+
+  try {
+    const { data: resData, error } = await resend.emails.send({
+      // ⚠️ IMPORTANT : Au début, utilise 'onboarding@resend.dev' comme expéditeur
+      from: 'Portfolio Contact <onboarding@resend.dev>',
+      to: [process.env.CONTACT_EMAIL as string],
+      replyTo: email, // Le mail du client pour pouvoir lui répondre
+      subject: `[Contact] ${object}`,
+      html: `
+        <div style="font-family: sans-serif; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h2 style="color: #333;">Nouveau message de ${firstname} ${lastname}</h2>
+          <p><strong>Email :</strong> ${email}</p>
+          <p><strong>Message :</strong></p>
+          <div style="background: #f4f4f4; padding: 15px; border-radius: 5px;">
+            ${message.replaceAll('\n', '<br>')}
+          </div>
+        </div>
+      `,
+    });
+
+    if (error) {
+      throw new Error(error.message);
+    }
+
+    return resData;
+  } catch (e) {
+    console.error("Erreur Resend :", e);
+    throw e;
+  }
 }

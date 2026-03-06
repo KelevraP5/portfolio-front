@@ -2,7 +2,10 @@
 
 import {z} from 'zod';
 import { revalidatePath } from 'next/cache';
+
 import { routes } from '../routes/routes';
+
+import { sendContactEmailFR, sendContactEmailEN } from '../lib/mail/mailTemplate';
 
 const schemaFR = z.object({
     prenom: z.string().trim().min(2, {message: "Doit faire plus de 2 lettres"}).max(50, {message: "Doit faire moins de 50 lettres"}),
@@ -23,11 +26,15 @@ export async function contactFormFR(prevState: any, formData: FormData) {
     }
 
     try{
-        console.log(validatedFields.data);
+        await sendContactEmailFR(validatedFields.data);
+
         revalidatePath(routes.fr.contact);
-        return {success : true, message: "Message envoyé avec succès ! Merci beaucoup !"}
+
+        return {success : true, message: "Message envoyé avec succès ! Merci beaucoup !"};
     } catch(e) {
-        return {message: e}
+        console.log(e);
+
+        return {success: false, message: "Erreur d'envoi du mail"};
     }
 }
 
@@ -51,10 +58,14 @@ export async function contactFormEN(prevState: any, formData: FormData) {
     }
 
     try{
-        console.log(validatedFields.data);
+        await sendContactEmailEN(validatedFields.data);
+
         revalidatePath(routes.en.contact);
-        return {success : true, message: "Your message has been sent successfully! Thank you very much!"}
+
+        return {success : true, message: "Your message has been sent successfully! Thank you very much!"};
     } catch(e) {
-        return {message: e}
+        console.log(e);
+
+        return {success: false, message: "Your email couldn't be sent"};
     }
 }
