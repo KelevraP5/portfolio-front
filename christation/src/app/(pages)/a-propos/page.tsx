@@ -3,7 +3,6 @@ import { getAProposPage } from "@/src/lib/services/pageServices";
 import { Metadata } from "next";
 
 import AProposClient from "./aProposClient";
-import { title } from "process";
 
 export default async function APropos() {
   const aPropos = await getAProposPage("FR");

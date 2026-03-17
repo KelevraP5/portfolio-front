@@ -33,4 +33,24 @@ export type AboutPageData = {
 
 export type ContactPageData = {
     imgBaseContact: MediaNode;
+};
+
+export type RealisationPageData = {
+    imgBaseRealisations : MediaNode;
+
+    nomProjet1 : string;
+    imgprincipalProjet1 : MediaNode;
+    img2Projet1 : MediaNode;
+    img3Projet1 : MediaNode;
+
+    nomProjet2 : string;
+    imgprincipalProjet2 : MediaNode;
+    img2Projet2 : MediaNode;
+    img3Projet2 : MediaNode;
+
+    nomProjet3 : string;
+    imgprincipalProjet3 : MediaNode;
+    img2Projet3 : MediaNode;
+    img3Projet3 : MediaNode;
+    
 }

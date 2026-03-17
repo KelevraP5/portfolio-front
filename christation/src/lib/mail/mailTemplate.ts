@@ -17,10 +17,10 @@ export async function sendContactEmailFR(data: EmailContactPropsFR) {
   try {
     const { data: resData, error } = await resend.emails.send({
       // ⚠️ IMPORTANT : Au début, utilise 'onboarding@resend.dev' comme expéditeur
-      from: 'Portfolio Contact <onboarding@resend.dev>',
+      from: process.env.MAIL_FROM!,
       to: [process.env.CONTACT_EMAIL as string],
       replyTo: email, // Le mail du client pour pouvoir lui répondre
-      subject: `[Contact] ${objet}`,
+      subject: `${objet}`,
       html: `
         <div style="font-family: sans-serif; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
           <h2 style="color: #333;">Nouveau message de ${prenom} ${nom}</h2>
@@ -38,6 +38,7 @@ export async function sendContactEmailFR(data: EmailContactPropsFR) {
     }
 
     return resData;
+    
   } catch (e) {
     console.error("Erreur Resend :", e);
     throw e;
@@ -59,13 +60,13 @@ export async function sendContactEmailEN(data: EmailContactPropsEN) {
   try {
     const { data: resData, error } = await resend.emails.send({
       // ⚠️ IMPORTANT : Au début, utilise 'onboarding@resend.dev' comme expéditeur
-      from: 'Portfolio Contact <onboarding@resend.dev>',
+      from: process.env.MAIL_FROM!,
       to: [process.env.CONTACT_EMAIL as string],
       replyTo: email, // Le mail du client pour pouvoir lui répondre
       subject: `[Contact] ${object}`,
       html: `
         <div style="font-family: sans-serif; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
-          <h2 style="color: #333;">Nouveau message de ${firstname} ${lastname}</h2>
+          <h2 style="color: #333;">New message from ${firstname} ${lastname}</h2>
           <p><strong>Email :</strong> ${email}</p>
           <p><strong>Message :</strong></p>
           <div style="background: #f4f4f4; padding: 15px; border-radius: 5px;">
@@ -80,6 +81,7 @@ export async function sendContactEmailEN(data: EmailContactPropsEN) {
     }
 
     return resData;
+
   } catch (e) {
     console.error("Erreur Resend :", e);
     throw e;
