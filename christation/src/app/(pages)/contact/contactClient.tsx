@@ -1,7 +1,7 @@
 "use client";
 
 import { BackgroundManager } from "@/src/components/bgManager";
-import { SendButton, ExitCross } from "@/src/components/buttons";
+import { SendButton } from "@/src/components/buttons";
 import { ContactPageData } from "@/src/types/wpData";
 
 import { useActionState, useEffect, useRef, useState } from "react";
@@ -23,8 +23,16 @@ export default function ContactClient({
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    if (state?.success) {
-      setShowSuccess(true);
+    if(!state?.success) return;
+
+    setShowSuccess(true);
+
+    const timer = globalThis.setTimeout(() => {
+      setShowSuccess(false);
+    }, 4000);
+
+    return () => {
+      globalThis.clearTimeout(timer);
     }
   }, [state]);
 
@@ -33,14 +41,6 @@ export default function ContactClient({
       {showSuccess && state?.success && (
         <div className={contactStyle.alertSuccess}>
           <Alert>
-            <button
-              type="button"
-              className={`${contactStyle.exitCross}`}
-              onClick={() => setShowSuccess(false)}
-              aria-label="croix de fermeture de la bannière confirmant l'envoi du message"
-            >
-              <ExitCross alt="croix de fermeture de la bannière confirmant l'envoi du message" />
-            </button>
             <div className={`${contactStyle.alertWrap}`}>
               <AlertDescription>
                 {state?.success && state.message ? state.message : ""}

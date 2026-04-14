@@ -10,6 +10,7 @@ import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { VerticalImgFrame, VerticalTxtFrame } from "components/contentFrame";
 import AProposStyle from "styles/modules/pages/aPropos.module.css";
 import { BackgroundManager } from "@/src/components/bgManager";
+import { routes } from "@/src/routes/routes";
 
 export default function AProposClient({
   page,
@@ -83,10 +84,11 @@ export default function AProposClient({
                   <VerticalImgFrame
                     contentImgUrl={infoMoi.imgFront}
                     contentAltText={infoMoi.imgAlt}
+                    route={routes.fr.aPropos}
                   />
                 </div>
                 <div className={AProposStyle.cardBack}>
-                  <VerticalTxtFrame content={infoMoi.contenu} />
+                  <VerticalTxtFrame content={infoMoi.contenu} lang="fr"/>
                 </div>
               </div>
             </button>

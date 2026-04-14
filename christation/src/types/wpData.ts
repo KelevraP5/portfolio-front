@@ -42,15 +42,18 @@ export type RealisationPageData = {
     imgprincipalProjet1 : MediaNode;
     img2Projet1 : MediaNode;
     img3Projet1 : MediaNode;
+    descriptionProjet1 : string;
 
     nomProjet2 : string;
     imgprincipalProjet2 : MediaNode;
     img2Projet2 : MediaNode;
     img3Projet2 : MediaNode;
+    descriptionProjet2 : string;
 
     nomProjet3 : string;
     imgprincipalProjet3 : MediaNode;
     img2Projet3 : MediaNode;
     img3Projet3 : MediaNode;
+    descriptionProjet3 : string;
     
 }

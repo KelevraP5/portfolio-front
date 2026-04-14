@@ -36,6 +36,6 @@ export default async function APropos() {
 }
 
 export const metadata: Metadata = {
-  title: "Page à propos de moi de Christophe Nehlig",
+  title: "À propos de moi",
   description: "Apprenez en plus sur Christophe Nehlig, mes passions, mes études et mon parcours professionnel",
 };

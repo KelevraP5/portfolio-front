@@ -34,6 +34,8 @@ export const GET_REALISATIONS_PAGE = gql`
               ...ImageFields
             }
           }
+          descriptionProjet1
+
           nomProjet2
           imgprincipalProjet2 {
             node {
@@ -50,6 +52,8 @@ export const GET_REALISATIONS_PAGE = gql`
               ...ImageFields
             }
           }
+          descriptionProjet2
+
           nomProjet3
           imgprincipalProjet3 {
             node {
@@ -66,6 +70,7 @@ export const GET_REALISATIONS_PAGE = gql`
               ...ImageFields
             }
           }
+          descriptionProjet3
         }
         translation(language: $language) {
           realisations {
@@ -90,6 +95,8 @@ export const GET_REALISATIONS_PAGE = gql`
                 ...ImageFields
               }
             }
+            descriptionProjet1
+
             nomProjet2
             imgprincipalProjet2 {
               node {
@@ -106,6 +113,8 @@ export const GET_REALISATIONS_PAGE = gql`
                 ...ImageFields
               }
             }
+            descriptionProjet2
+
             nomProjet3
             imgprincipalProjet3 {
               node {
@@ -122,6 +131,7 @@ export const GET_REALISATIONS_PAGE = gql`
                 ...ImageFields
               }
             }
+            descriptionProjet3
           }
         }
       }

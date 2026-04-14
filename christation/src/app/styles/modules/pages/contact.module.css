@@ -167,17 +167,11 @@
 
   z-index: 100;
 
-  .exitCross {
-    position: absolute;
-    right: 0;
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-  }
-
   .alertWrap{
     width: 100%;
     text-wrap: pretty;
+    margin: 0 auto;
+    text-align: center;
   }
 }
 
@@ -185,6 +179,7 @@
   .alertSuccess{
     .alertWrap{
       width: 90%;
+      white-space: pre-line;
     }
   }
 }

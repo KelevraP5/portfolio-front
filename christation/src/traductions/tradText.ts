@@ -4,6 +4,7 @@ export const tradText = {
         backHome: "menu",
         legal: "mentions légales",
         socials: "retrouvez moi sur",
+        scroll : "Scroller pour plus",
 
         screenReader: {
             mainPage: "revenir sur la page d'accueil",
@@ -27,6 +28,7 @@ export const tradText = {
         backHome: "menu",
         legal: "legal notices",
         socials: "find me on",
+        scroll : "Scroll for more",
 
         screenReader: {
             mainPage: "go back to the homepage",

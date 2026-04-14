@@ -29,7 +29,7 @@ export function Header({ isSidebarOpen, setIsSidebarOpen }: Readonly<HeaderProps
   const translatedText = useTranslation(tradText);
 
   return (
-    <div className="text-font-24px w-full h-[100px] px-[28px] py-[16px]">
+    <div className="w-full h-[100px] px-[28px] py-[16px]">
       <div className="h-[100%] flex justify-between items-center">
         <div className="left-side flex gap-[32px]">
           <button type="button" className="flex gap-[8px] cursor-pointer" onClick={() => setIsSidebarOpen(!isSidebarOpen)} aria-label={translatedText.screenReader.sidebarBtn}>

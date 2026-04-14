@@ -27,11 +27,13 @@
     font-weight: 400;
     line-height: 1.4;
     height: 100%;
+    color: theme("colors.hex-white");
   }
 
   header {
     flex-grow: 0;
     flex-shrink: 0;
+    font-size: theme('fontSize.font-24px');
 
     .trophy-text,
     .menu-btn {
@@ -133,8 +135,10 @@
   span,
   li {
     @apply font-contenu;
+    font-size: theme("fontSize.font-16px");
     text-wrap: pretty;
     color: theme("colors.hex-white");
+    line-height: 1.4;
   }
 
   button {
